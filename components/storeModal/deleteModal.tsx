@@ -36,10 +36,11 @@ export function DeleteModal({deleteModalOpen,setDeleteModalOpen,BulkActionArray,
         onOk={handleOk}
         onCancel={handleCancel}
         footer={[
-            <Button onClick={handleCancel}>
+            <Button key="cancelButton" onClick={handleCancel}>
                 No, Keep it
             </Button>,
             <Button 
+            key="deleteButton"
             loading={deleteLoading}
                 danger
                 type="primary"
@@ -52,7 +53,7 @@ export function DeleteModal({deleteModalOpen,setDeleteModalOpen,BulkActionArray,
         <div className=' gap-0.5   flex flex-col justify-center items-center '>
             <FaRegTrashAlt className="mb-6 text-red-600 text-2xl " />
             <h3 className=' font-semibold text-lg break-keep '>Are You Sure! Want to Delete <span className='text-red-600'></span>?</h3>
-            <p className='text-center'>Do you realy want to delete these records? you can't view this in your list anymore if you delete!</p>
+            <p className='text-center'>Do you realy want to delete these records? you can&apos;t view this in your list anymore if you delete!</p>
         </div>
     </Modal>
     )

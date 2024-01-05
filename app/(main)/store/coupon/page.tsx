@@ -93,8 +93,8 @@ export default function Coupon() {
         }
         else if (!regex.test(value)) {
             messageApi.open({
-                type: 'warning',
-                content: ' Not Allow! ',
+                type: "warning",
+                content: "Not Allow!"
             });
         } else {
             SetDiscount(value)
@@ -246,10 +246,10 @@ export default function Coupon() {
         } else {
             setDeleteLoader(true)
             try {
-                let body={
-                    ids:bulkActionArray
+                let body = {
+                    ids: bulkActionArray
                 }
-                let response = await axios.delete(`${process.env.NEXT_PUBLIC_BASE_URL}/coupon/deletemany`,{data:body})
+                let response = await axios.delete(`${process.env.NEXT_PUBLIC_BASE_URL}/coupon/deletemany`, { data: body })
                 message.success(response.data.message)
                 setBulkActionArray([])
                 setRefresh(!refresh)
@@ -261,7 +261,7 @@ export default function Coupon() {
         }
     }
 
-    
+
     return (
         <div className="overflow-y-auto  w-full bg-gray-100 h-full p-3">
             {contextHolder}
@@ -401,10 +401,11 @@ export default function Coupon() {
             <Modal
                 open={openDeleteModal}
                 footer={[
-                    <Button onClick={handelCancelDeleteModal}>
+                    <Button key="cancelButton" onClick={handelCancelDeleteModal}>
                         No, Keep it
                     </Button>,
                     <Button
+                        key="deleteButton"
                         loading={deleteLoader}
                         danger
                         type="primary"
@@ -417,7 +418,7 @@ export default function Coupon() {
                 <div className=' gap-0.5   flex flex-col justify-center items-center '>
                     <FaRegTrashAlt className="mb-6 text-red-600 text-2xl " />
                     <h3 className=' font-semibold text-lg break-keep '>Are You Sure! Want to Delete <span className='text-red-600'>Selected Coupon</span>?</h3>
-                    <p className='text-center'>Do you realyy want to dekete these records? you can't view this in your list anymore if you delete!</p>
+                    <p className='text-center'>Do you realyy want to dekete these records? you can&apos;t view this in your list anymore if you delete!</p>
                 </div>
             </Modal>
 
