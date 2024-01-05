@@ -10,6 +10,8 @@ const config: Config = {
     extend: {
       screens: {
         xs: "545px",
+        nbt:{"min":"0px","max":"414px"},
+        nb:{"min":"865px","max":"100vw"},
       },
       maxWidth: {
         column: "200px", // Adjust the width as per your needs
