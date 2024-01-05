@@ -73,7 +73,8 @@
 }
 
 .hide-scrollbar {
-    scrollbar-width: none; /* Firefox */
+  scroll-behavior: smooth;
+    scrollbar-width:none; /* Firefox */
     -ms-overflow-style: none; /* IE and Edge */
     overflow: -moz-scrollbars-none; /* Firefox */
     -webkit-overflow-scrolling: touch; /* iOS Safari */
@@ -81,4 +82,12 @@
   
   .hide-scrollbar::-webkit-scrollbar {
     display: none; /* Chrome, Safari, and Opera */
+  }
+
+  .br{
+    border:2px solid red;
+  }
+
+  .bb{
+    border:4px solid black;
   }

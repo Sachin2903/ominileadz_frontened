@@ -25,12 +25,12 @@ const Hero1 = () => {
           </div>
           <p className="w-[85%]">
             {" "}
-            Unlocking Growth Through Actionable Insights: Your Premier Destination
-            for Managing and Maximizing Data-Driven Leads!
+            Unlocking Growth Through Actionable Insights:
+            Your Premier Destination for Managing and Maximizing Data-Driven Leads!
           </p>
           <Link
             href={"/login"}
-            className=" bg-blue-500 px-5  lg:text-xl text-sm rounded-sm text-white h-14 w-fit items-center whitespace-nowrap flex self-center xs:self-start"
+            className="hover:scale-95 bg-blue-500 px-5  lg:text-xl text-sm rounded-sm text-white h-14 w-fit items-center whitespace-nowrap flex self-center xs:self-start"
           >
             <button>Try it Now {"-> "}</button>
           </Link>

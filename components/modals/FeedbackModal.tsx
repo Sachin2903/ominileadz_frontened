@@ -483,10 +483,10 @@ const FeedbackModal: React.FC<FeedbackModalProps> = ({ leadId }) => {
                       lead?.followUpDate !== null ? lead?.followUpDate : ""
                     }
                     onChange={handleChange}
-                    className="border rounded px-2 py-1 focus:outline-none focus:border-blue-500  cursor-pointer border-none"
+                    className="border text-sm rounded  px-2 py-1 focus:outline-none focus:border-blue-500  cursor-pointer border-none"
                     min={new Date().toISOString().split("T")[0]}
                   />
-                  <p className="text-xl">
+                  <p className="text-xl ml-2">
                     <FcAbout />
                   </p>
                 </div>

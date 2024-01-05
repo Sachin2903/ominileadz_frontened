@@ -29,7 +29,7 @@ const Hero1Navbar = () => {
       </div>
       <Link
         href={"/login"}
-        className=" bg-blue-500 px-2  lg:px-5   lg:text-xl text-xs sm:text-sm rounded text-white h-[100%] whitespace-nowrap flex items-center"
+        className="hover:scale-95 bg-blue-500 px-2  lg:px-5   lg:text-xl text-xs sm:text-sm rounded text-white h-[100%] whitespace-nowrap flex items-center"
       >
         <button>Book a Demo </button>
       </Link>

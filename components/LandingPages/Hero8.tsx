@@ -19,7 +19,7 @@ const Hero8 = () => {
         <Image src={leaf} alt={""} priority />
       </div>
       <h2 className="lg:text-6xl sm: text-4xl lg:w-[50%] sm:w-[70%] w-[90%] text-[#407BFF] font-semibold">
-        Ready to Start a Business Using a Omnileads?
+        Ready to Start a Business Using a Omnileadz?
       </h2>
       <div className="mt-10 lg:w-[50%] sm:w-[70%] w-[90%] flex items-center justify-center p-4 bg-white border-[0.5px] border-gray-300 rounded flex-col lg:flex-row gap-y-5">
         <input

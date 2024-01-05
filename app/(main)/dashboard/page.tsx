@@ -169,7 +169,6 @@ const HomePage = () => {
         totalSendDetailsLeads,
       } = leadsData;
 
-      console.log("leads Data", leadsData);
       setLeadsData({
         totalLeads: totalLeadsCount,
         last30DaysLeads: last30DaysLeadsCount,
@@ -253,10 +252,10 @@ const HomePage = () => {
                         className="lg:h-16 lg:w-16 h-12 w-12"
                       />
                       <div className="flex flex-col gap-y-2">
-                        <h2 className="lg:text-xs text-[0.6rem] text-slate-500">
+                        <h2 className="lg:text-sm text-[0.8rem] text-slate-500">
                           {item.title}
                         </h2>
-                        <h1 className="lg:text-3xl  font-semibold text-slate-700">
+                        <h1 className="lg:text-2xl  font-semibold text-slate-700">
                           {item.text}
                         </h1>
                       </div>
@@ -264,16 +263,16 @@ const HomePage = () => {
                   );
                 })}
             </div>
-            <div className=" w-full p-5  shadow">
+            {/* <div className=" w-full p-5  shadow">
               <h2 className="text-xl font-semibold font-sans tracking-wide text-gray-600">
                 Leads Info
               </h2>
-              {/* <TableContainer
+              <TableContainer
                 columnsData={columns}
                 rowsData={membersData}
                 pagination={{ pageSize: 8 }}
-              /> */}
-            </div>
+              />
+            </div> */}
           </>
         )}
       </main>

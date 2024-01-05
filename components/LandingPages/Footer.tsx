@@ -50,7 +50,7 @@ const contactList = [
   },
   {
     id: 1,
-    text: "omnileads@gmail.com",
+    text: "omnileadz@gmail.com",
   },
 ];
 
@@ -112,7 +112,7 @@ const Footer = () => {
         </div>
       </div>
       <h2 className="text-center py-5">
-        © Copyright {new Date().getFullYear()} OmniLeads
+        © Copyright {new Date().getFullYear()} OmniLeadz
       </h2>
     </main>
   );
