@@ -1,0 +1,12 @@
+trigger:
+- main
+ 
+pool: Default
+ 
+steps:
+- task: vercel-deployment-task@1
+  inputs:
+    vercelProjectId: 'prj_mtYj0MP83muZkYDs2DIDfasdas' 
+    vercelOrgId: 'QnZPxqgx1J8DEJyME8CeUiSz'
+    vercelToken: $(VERCEL_TOKEN)
+    production: true
