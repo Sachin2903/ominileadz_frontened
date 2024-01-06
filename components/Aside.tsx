@@ -16,6 +16,8 @@ type ChildIconType = {
   id: number;
   title: string;
   value: string;
+  // path of parent category
+  parentPath: string;
 };
 
 type AsideIconType = {
@@ -48,18 +50,22 @@ const Aside: React.FC = () => {
   };
 
   const handleChildClick = (child: ChildIconType) => {
+    // navigate to the parent page and set the category of the child
+    router.push(child.parentPath);
     dispatch(setLeadCategoryTextValue(child.value));
+
     if (child.title.toLowerCase() === "follow up") {
       dispatch(setLeadSubCategoryTextValue("all_leads"));
     }
+
     // if (pathname === "/leads") {
     //   dispatch(setLeadCategoryTextValue("new_leads"));
     // }
 
-    if (pathname !== "/leads") {
-      router.push("/leads");
-      dispatch(setLeadCategoryTextValue("new_leads"));
-    }
+    // if (pathname !== "/leads") {
+    //   router.push("/leads");
+    //   dispatch(setLeadCategoryTextValue("new_leads"));
+    // }
   };
 
   return (
@@ -91,9 +97,9 @@ const Aside: React.FC = () => {
                     <div
                       key={childIcon.id}
                       onClick={() => handleChildClick(childIcon)}
-                      className={`flex text-gray-500  gap-x-4 hover:text-[#369FFF] cursor-pointer mt-5 ml-5 items-center ${
+                      className={`flex gap-x-4 hover:text-[#369FFF] cursor-pointer mt-5 ml-5 items-center ${
                         leadCategory === childIcon.value &&
-                        pathname === icon.path
+                        pathname === childIcon.parentPath
                           ? "text-[#369FFF]"
                           : "text-gray-500"
                       }`}
@@ -105,8 +111,6 @@ const Aside: React.FC = () => {
                 })}
               </div>
             )}
-
-
 
           </div>
         ))}

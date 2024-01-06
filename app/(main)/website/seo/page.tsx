@@ -2,7 +2,7 @@
 import { Button, Input, Select, Space, Spin, message } from 'antd';
 const { Search } = Input;
 import { useEffect, useState } from 'react';
-import { AddNewWebsiteForSeo } from '@/components/modals/addNewWebsiteForSeo';
+// import { AddNewWebsiteForSeo } from '@/components/modals/addNewWebsiteForSeo';
 import { v4 as uuidv4 } from 'uuid';
 import axios from 'axios';
 
@@ -115,9 +115,9 @@ export default function SEO() {
                         ) : (
                                 websiteData && websiteData.length > 0 ? (
                                         <div>
-                                                {websiteData.map((item: any) => (
-                                                        <AddNewWebsiteForSeo key={item.id} dataToSave={dataToSave} setDataToSave={setDataToSave} websiteData={websiteData} setWebsiteData={setWebsiteData} deleteFunction={toDeleteCompleteWebsite} item={item} />
-                                                ))}
+                                                {/* {websiteData.map((item: any) => (
+                                                        // <AddNewWebsiteForSeo key={item.id} dataToSave={dataToSave} setDataToSave={setDataToSave} websiteData={websiteData} setWebsiteData={setWebsiteData} deleteFunction={toDeleteCompleteWebsite} item={item} />
+                                                ))} */}
                                         </div>
                                 ) : (
                                         <p className="w-full text-center">No data available</p>

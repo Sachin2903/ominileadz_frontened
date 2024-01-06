@@ -25,31 +25,37 @@ const asideIcons = [
         id: 1,
         title: "New Leads",
         value: "new_leads",
+        // path of parent 
+        parentPath:"/leads",
       },
       {
         id: 2,
         title: "Follow Up",
         value: "follow_up",
+        parentPath:"/leads",
       },
       {
         id: 3,
         title: "Send Details",
         value: "send_details",
+        parentPath:"/leads",
       },
       {
         id: 4,
         title: "Regretted",
-        value: "regretted",
+        parentPath: "regretted",
       },
       {
         id: 5,
         title: "Quotation",
         value: "quotation",
+        parentPath:"/leads",
       },
       {
         id: 6,
         title: "PO",
         value: "po",
+        parentPath:"/leads",
       },
     ],
   },
@@ -78,21 +84,25 @@ const asideIcons = [
       id: 1,
       title: "Product",
       value: "product",
+      parentPath:"/store/product",
     },
     {
       id: 2,
       title: "Category",
       value: "category",
+      parentPath:"/store/category",
     },
     {
       id: 3,
       title: "Attribute",
       value: "attribute",
+      parentPath:"/store/attribute",
     },
     {
       id: 4,
       title: "Coupon",
       value: "coupon",
+      parentPath:"/store/coupon",
     }
   ],
   },{
@@ -104,7 +114,8 @@ const asideIcons = [
     children: [{
       id: 1,
       title: "SEO",
-      value: "new_leads",
+      value: "seo",
+      parentPath:"/website/seo",
     }],
   },
   {
