@@ -66,9 +66,8 @@ const Sidebar = ({ isOpen, onClose }: Sidebar) => {
         onClick={onClose}
       >
         &times;
-      </button>
-
-      <div className="flex w-full items-center justify-center text-gray-500 h-full flex-col space-y-10 text-base">
+      </button> 
+       <div className="flex w-full items-center justify-center text-gray-500 h-full flex-col space-y-10 text-base">
         {leadsData.map((icon, index) => {
           return (
             <Link
