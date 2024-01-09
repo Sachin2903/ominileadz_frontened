@@ -103,13 +103,14 @@ const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
         <AddGroupMemberModal groupId={groupId} />
       )}
 
-      <div className="w-full overflow-y-auto max-h-screen">
+      <div className="w-full relative  overflow-y-auto max-h-screen">
         <Navbar
+        
           placeholder="Search "
           inputValue={searchQuery}
           handleInputChange={handleInputChange}
         />
-        <main className="px-5 mb-[90px] xs:mb-3 md:px-7">{children}</main>
+        <main className="px-5 xs:mt-0 mt-14 mb-[90px] xs:mb-3 md:px-7">{children}</main>
       </div>
       <SmallAside />
     </div>

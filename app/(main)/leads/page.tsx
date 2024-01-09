@@ -157,7 +157,7 @@ const Page = () => {
         });
       }
 
-      console.log("checking leadsData", leadsData);
+
     } catch (error) {
       if (error instanceof AxiosError) {
         const errorMessage =

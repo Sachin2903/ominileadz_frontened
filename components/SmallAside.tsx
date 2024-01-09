@@ -31,6 +31,7 @@ const SmallAside = () => {
           return (
             <div 
               // lead category
+              key={index*10}
               onClick={() => handleMainCategoryClick(icon.mainCategory)}
               className="cursor-pointer">
               <Link

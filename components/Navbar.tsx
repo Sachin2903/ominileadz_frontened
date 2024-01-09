@@ -76,10 +76,11 @@ const Sidebar = ({ isOpen, onClose, children }: Sidebar) => {
 
     return (
     <main
-      className={`fixed top-0 left-0 h-[calc(100vh-8.5rem)] w-[85%] bg-gray-200 transform transition-transform z-[1000] mt-14 xs:hidden duration-300 ${
+      className={`fixed top-0 left-0 h-[calc(100vh-8.5rem)] w-screen bg-gray-100 transform transition-transform z-[1000] mt-14 xs:hidden duration-500 ${
         isOpen ? "translate-x-0" : "-translate-x-full"
       }`}
     >
+
       <button
         className="absolute top-2 right-3  text-3xl cursor-pointer text-red-500"
         onClick={onClose}
@@ -87,7 +88,7 @@ const Sidebar = ({ isOpen, onClose, children }: Sidebar) => {
         &times;
       </button>
 
-      <div className="flex w-full items-center justify-start text-gray-500 h-full flex-col space-y-10 text-base">
+      <div className="pt-4 flex w-full items-center justify-start text-gray-700 h-full flex-col space-y-10 text-base">
         {/* {leadsData.map((icon, index) => {
           return (
             <Link
@@ -103,7 +104,7 @@ const Sidebar = ({ isOpen, onClose, children }: Sidebar) => {
         {/* show each children of mainCategory */}
         { children.map((icon, index) => {
           return (
-            <div className="cursor-pointer"
+            <div className="cursor-pointer" key={index*11}
               onClick={() => handleLeadCategoryChange(icon.value)}
               >
               <Link
@@ -112,7 +113,7 @@ const Sidebar = ({ isOpen, onClose, children }: Sidebar) => {
                 className={`hover:text-[#369FFF] cursor-pointer`}
                 onClick={onClose}
               >
-                <h2>{icon.title}</h2>
+                <h2 className="font-semibold">{icon.title}</h2>
               </Link>
             </div>
           );
@@ -170,21 +171,21 @@ const Navbar: React.FC<INavbarProps> = ({
   }, [leadCategory]);
 
   return (
-    <main className="h-14 flex w-full bg-white text-white items-center justify-between md:justify-end px-5 border-b-[1px]">
+    <main className="h-14  z-50 top-0 fixed xs:static flex w-full bg-white text-white items-center justify-between md:justify-end px-5 border-b-[2px]">
 
       {/* {path === "leads" && ( */}
       {/* check whether the mainCategory has any children */}
       { children.length > 0 && (
         <div
-          className="hover:-rotate-90 transition-all duration-300 text-xl  text-[#B0BABF] cursor-pointer ml-2  xs:hidden "
+          className="text-xl  text-[#B0BABF] cursor-pointer ml-2  xs:hidden "
           onClick={toggleSidebar}
         >
           <GiHamburgerMenu />
         </div>
       )}
 
-      <div className="flex items-center justify-between w-full">
-        <div className="relative">
+      <div className="flex  items-center justify-between w-full">
+        <div className=" relative">
           <div className="absolute top-3 left-3 text-gray-500 hidden md:block ">
             <BiSearch />
           </div>
@@ -234,7 +235,7 @@ const Navbar: React.FC<INavbarProps> = ({
         </div>
       </div>
       
-      <Sidebar isOpen={isSidebarOpen} onClose={toggleSidebar} children={children} />
+      <Sidebar isOpen={isSidebarOpen}  onClose={toggleSidebar}>{children}</Sidebar>
     </main>
   );
 };
