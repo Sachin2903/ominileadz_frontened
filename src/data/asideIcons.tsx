@@ -43,7 +43,8 @@ const asideIcons = [
       {
         id: 4,
         title: "Regretted",
-        parentPath: "regretted",
+        value:"regretted",
+        parentPath: "/leads",
       },
       {
         id: 5,
@@ -64,7 +65,7 @@ const asideIcons = [
     icon: <AiOutlineCarryOut />,
     path: "/company/info",
     title: "Company",
-    mainCategory: "leads",
+    mainCategory: "company",
     children: [],
   },
   {
@@ -72,7 +73,7 @@ const asideIcons = [
     icon: <LuFolderMinus />,
     path: "/contact/leadsInfo",
     title: "Contact",
-    mainCategory: "leads",
+    mainCategory: "contact",
     children: [],
   },{
     id: 4,
@@ -110,7 +111,7 @@ const asideIcons = [
     icon: <CgWebsite />,
     path: "/website/seo",
     title: "Website",
-    mainCategory: "leads",
+    mainCategory: "website",
     children: [{
       id: 1,
       title: "SEO",
@@ -123,7 +124,7 @@ const asideIcons = [
     icon: <CiSettings />,
     path: "/settings/team",
     title: "Settings",
-    mainCategory: "leads",
+    mainCategory: "settings",
     children: [],
   },
 ];
