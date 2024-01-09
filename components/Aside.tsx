@@ -38,10 +38,11 @@ const Aside: React.FC = () => {
   );
   const dispatch = useAppDispatch();
   const isPathActive = (path: string, children?: ChildIconType[]): boolean => {
+    
     if (pathname === path) {
       return true;
     }
-    if (children && pathname === path) {
+    if (children&&children?.length>0 ) {
       return children.some((child) => leadCategory === child.value);
     }
     return false;
@@ -68,7 +69,7 @@ const Aside: React.FC = () => {
     //   dispatch(setLeadCategoryTextValue("new_leads"));
     // }
   };
-console.log(leadCategory,"from lead page")
+
   return (
     <main className="h-screen w-[17.5rem] bg-[#F6F8F9] xs:flex hidden flex-col items-center justify-evenly py-10">
       <div className="flex flex-col gap-y-10 w-[70%] h-full overflow-y-auto hide-scrollbar py-7">
@@ -106,7 +107,7 @@ console.log(leadCategory,"from lead page")
                       }`}
                     >
                       <h2 className="text-xl"> -</h2>
-                      <h2 className="text-xs">{childIcon.title}</h2>
+                      <h2 className="text-xs font-semibold">{childIcon.title}</h2>
                     </div>
                   );
                 })}
