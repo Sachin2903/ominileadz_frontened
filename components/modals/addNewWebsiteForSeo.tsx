@@ -88,7 +88,7 @@ export function AddNewWebsiteForSeo({dataToSave, setDataToSave, item, deleteFunc
   
 
   return (
-    <div className="mb-6 bg-gray-100 shadow-lg h-fit relative p-2">
+    <div className="mb-6  shadow-lg h-fit relative p-2">
       <p className="text-white cursor-none absolute -top-2 -left-2 flex justify-center items-center text-xs w-[23px] font-semibold h-[23px] rounded-full bg-red-500">{item.keywords.length}</p>
       <RiDeleteBin2Fill onClick={() => deleteFunction(item.id)} className="hover:scale-125 absolute -top-3 cursor-pointer -right-3 flex justify-center items-center text-xs w-[25px] font-semibold h-[26px] rounded-full text-red-500" />
 

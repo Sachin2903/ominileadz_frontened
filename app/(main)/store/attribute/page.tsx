@@ -25,7 +25,7 @@ export default function Attribute() {
     const [BulkActionArray,setBulkActionArray]=useState([])
     const [tableData, setTableData] = useState([])
     return (
-        <div className="overflow-y-auto w-full bg-gray-100 h-full p-3">
+        <div className="overflow-y-auto w-full h-full p-3">
             {contextHolder}
             <h1 className="semibold text-lg">Attributes </h1>
             <TopLayer fileList={fileList} setFileList={setFileList} openAddTribute={openAddTribute} setOpenAddAttribute={setOpenAddAttribute} setDeleteModalOpen={setDeleteModalOpen} setBulkActionDrawer={setBulkActionDrawer} BulkActionArray={BulkActionArray} setBulkActionArray={setBulkActionArray}/>

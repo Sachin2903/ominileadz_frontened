@@ -263,7 +263,7 @@ export default function Coupon() {
 
 
     return (
-        <div className="overflow-y-auto  w-full bg-gray-100 h-full p-3">
+        <div className="overflow-y-auto  w-full  h-full p-3">
             {contextHolder}
             <h1 className="semibold text-lg">Coupon </h1>
 
