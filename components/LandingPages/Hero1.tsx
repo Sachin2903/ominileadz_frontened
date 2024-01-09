@@ -3,6 +3,7 @@ import { Hero1Navbar } from ".";
 import Image from "next/image";
 import hero1 from "../../src/assets/images/landingPage/hero1.png";
 import Link from "next/link";
+import {hero1MainImage} from "@/src/assets/cloudinaryImageLinks"
 
 const Hero1 = () => {
   return (
@@ -36,10 +37,9 @@ const Hero1 = () => {
           </Link>
         </div>
         <div className=" md:h-[32rem] w-full md:flex md:items-center md:justify-end justify-center items-start ">
-          <Image
-            src={hero1}
+          <img
+            src={hero1MainImage}
             alt={"hero main"}
-            priority
             className="h-[90%] object-contain "
           />
         </div>

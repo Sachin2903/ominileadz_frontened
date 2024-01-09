@@ -5,6 +5,7 @@ import Link from "next/link";
 import React from "react";
 import Img from "../src/assets/amico.png";
 import Image from "next/image";
+import {AsideNavbarImage} from "@/src/assets/cloudinaryImageLinks"
 import { usePathname, useRouter } from "next/navigation";
 import { useAppDispatch, useAppSelector } from "@/redux/store";
 import {
@@ -112,7 +113,7 @@ console.log(leadCategory,"from lead page")
         ))}
       </div>
       <div className="w-[85%] mt-10">
-        <Image src={Img} alt="aside img" priority />
+        <img src={AsideNavbarImage} alt="aside img"  />
       </div>
     </main>
   );

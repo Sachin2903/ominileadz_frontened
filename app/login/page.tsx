@@ -4,6 +4,7 @@ import { useState } from "react";
 import axios, { AxiosError } from "axios";
 import { useRouter } from "next/navigation";
 import Img from "@/src/assets/login.png";
+import {loginPageImage} from "@/src/assets/cloudinaryImageLinks"
 import Image from "next/image";
 import toast, { Toaster } from "react-hot-toast";
 import { useAppSelector } from "@/redux/store";
@@ -143,7 +144,7 @@ const Page: React.FC = () => {
           </div>
         </div>
         <div className="hidden lg:flex w-[53%] items-center justify-center">
-          <Image src={Img} alt={"login image"} priority />
+          <img src={loginPageImage} alt={"login"} />
         </div>
       </div>
     </main>

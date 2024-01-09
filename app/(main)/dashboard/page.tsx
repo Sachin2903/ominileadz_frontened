@@ -1,6 +1,7 @@
 "use client";
 import Image from "next/image";
 import stats from "../../../src/assets/images/dashboard/stats.png";
+import {statsImage} from "../../../src/assets/cloudinaryImageLinks";
 import { useEffect, useState } from "react";
 import { ILeadsState, IMemberLead, Member } from "@/src/@types";
 import { getAccessToken, getRefreshToken } from "@/src/utils/getTokens";
@@ -246,10 +247,10 @@ const HomePage = () => {
                       key={index}
                       className="bg-white px-5 py-3 flex gap-x-4 shadow-lg items-center  gap-y-3"
                     >
-                      <Image
-                        src={stats}
+                      <img
+                        src={statsImage}
                         alt=""
-                        className="lg:h-16 lg:w-16 h-12 w-12"
+                        className="lg:h-15 lg:w-15 h-11 w-11"
                       />
                       <div className="flex flex-col gap-y-2">
                         <h2 className="lg:text-sm text-[0.8rem] text-slate-500">

@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import leaf from "../../src/assets/images/landingPage/leaf-left.png";
 import { Collapse } from "antd";
 import Image from "next/image";
+import {leafLeftImage} from "@/src/assets/cloudinaryImageLinks"
 
 const items = [
   {
@@ -84,7 +85,7 @@ const Hero6 = () => {
   return (
     <main className="min-h-screen max-h-auto flex flex-col items-center justify-start py-10 px-10 relative ">
       <div className="absolute lg:block hidden left-0 top-40  ">
-        <Image src={leaf} alt={""} priority />
+        <img src={leafLeftImage} alt={""}  />
       </div>
       <h2 className="text-[#407BFF] text-5xl font-semibold">
         Frequently Asked questions

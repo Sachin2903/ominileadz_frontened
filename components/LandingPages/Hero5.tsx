@@ -1,6 +1,7 @@
 import Image from "next/image";
 import React from "react";
 import img from "../../src/assets/images/landingPage/h5-img.png";
+import {landingPageH5} from "@/src/assets/cloudinaryImageLinks"
 
 const Hero5 = () => {
   return (
@@ -26,7 +27,7 @@ const Hero5 = () => {
           </button>
         </div>
         <div className="cols-span-1 hidden w-full md:flex items-center justify-center">
-          <Image src={img} alt={""} priority className=" object-contain " />
+          <img src={landingPageH5} alt={""}  className=" object-contain " />
         </div>
       </div>
     </main>

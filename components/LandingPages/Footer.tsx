@@ -1,6 +1,7 @@
 import React from "react";
 import { Logo } from "..";
 import leaf from "../../src/assets/images/landingPage/leaf-left.png";
+import {leafLeftImage} from "@/src/assets/cloudinaryImageLinks"
 import Image from "next/image";
 
 const navList = [
@@ -58,7 +59,7 @@ const Footer = () => {
   return (
     <main className="h-auto lg:h-[60xh] relative ">
       <div className="absolute lg:block hidden top-36   ">
-        <Image src={leaf} alt={""} priority />
+        <img src={leafLeftImage} alt={""}  />
       </div>
       <div className="grid grid-cols-6 md:p-20 p-10 gap-y-10 ">
         <div className="md:col-span-3 col-span-6">
