@@ -1,14 +1,14 @@
 import Image from "next/image";
 import React from "react";
 
-import img1 from "../../src/assets/images/landingPage/h3-img1.png";
-import img2 from "../../src/assets/images/landingPage/h3-img2.png";
-import img3 from "../../src/assets/images/landingPage/h3-img3.png";
-import img4 from "../../src/assets/images/landingPage/h3-img4.png";
-import img5 from "../../src/assets/images/landingPage/h3-img5.png";
-import img6 from "../../src/assets/images/landingPage/h3-img6.png";
-import img7 from "../../src/assets/images/landingPage/h3-img7.png";
-
+import {img1} from "@/src/assets/cloudinaryImageLinks";
+import {img2} from "@/src/assets/cloudinaryImageLinks";
+import {img3} from "@/src/assets/cloudinaryImageLinks";
+import {img4} from "@/src/assets/cloudinaryImageLinks";
+import {img5} from "@/src/assets/cloudinaryImageLinks";
+import {img6} from "@/src/assets/cloudinaryImageLinks";
+import {img7} from "@/src/assets/cloudinaryImageLinks";
+import {connectedLinesImage} from "@/src/assets/cloudinaryImageLinks";
 import line from "../../src/assets/images/landingPage/connectingLine.png";
 import Link from "next/link";
 
@@ -57,10 +57,9 @@ const Hero3 = () => {
         return index % 2 !== 0 ? (
           <div key={index} className="grid grid-cols-2 gap-x-20 z-20">
             <div className="h-[18rem] w-full items-end md:flex hidden">
-              <Image
+              <img
                 src={item.img}
                 alt={"img"}
-                priority
                 className="bg-white object-contain h-full "
               />
             </div>
@@ -80,10 +79,9 @@ const Hero3 = () => {
               <p className="md:text-xl text-sm">{item.text}</p>
             </div>
             <div className="h-[18rem] w-full items-end justify-end md:flex hidden ">
-              <Image
+              <img
                 src={item.img}
                 alt={"img"}
-                priority
                 className="bg-white object-contain h-full "
               />
             </div>
@@ -99,7 +97,7 @@ const Hero3 = () => {
         </Link>
       </div>
       <div className="top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 h-full hidden md:block absolute">
-        <Image src={line} alt={""} priority className="mt-24 h-[70%] " />
+        <img src={connectedLinesImage} alt={""}  className="mt-24 h-[70%] " />
       </div>
     </main>
   );

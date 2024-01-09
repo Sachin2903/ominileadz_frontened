@@ -67,7 +67,7 @@ const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
   };
 
   return (
-    <div className="flex">
+    <div className="flex ">
       <Aside />
       {/* dashboard page modals */}
       {isMemberLeadsInfoModalOpen && <MemberLeadsInfoModal record={record} />}
@@ -109,7 +109,7 @@ const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
           inputValue={searchQuery}
           handleInputChange={handleInputChange}
         />
-        <main className="px-5 md:px-7">{children}</main>
+        <main className="px-5 mb-[90px] xs:mb-3 md:px-7">{children}</main>
       </div>
       <SmallAside />
     </div>

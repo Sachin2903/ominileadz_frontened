@@ -49,6 +49,7 @@ const SmallAside = () => {
         })}
       </div>
     </main>
+
   );
 };
 

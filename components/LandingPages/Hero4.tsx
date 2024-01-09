@@ -2,7 +2,7 @@ import Image from "next/image";
 import React from "react";
 
 import circle from "../../src/assets/images/landingPage/circle1.png";
-
+import {landingPageCircle} from "@/src/assets/cloudinaryImageLinks"
 const data = [
   {
     title: "Basic",
@@ -67,7 +67,7 @@ const Hero4 = () => {
   return (
     <main className="h-auto w-full flex items-center py-10 px-5 flex-col relative">
       <div className="absolute lg:block hidden left-0 bottom-16 ">
-        <Image src={circle} alt={""} priority />
+        <img src={landingPageCircle} alt={""}  />
       </div>
       <div className="flex justify-center flex-col items-center md:w-[60%] xs:w-[80%] w-full ">
         <h2 className="text-[#407BFF] font-semibold md:text-4xl text-2xl ">

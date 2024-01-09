@@ -4,8 +4,9 @@ import { useState } from "react";
 import axios, { AxiosError } from "axios";
 import { useRouter } from "next/navigation";
 import Img from "@/src/assets/login.png";
+import {loginPageImage} from "@/src/assets/cloudinaryImageLinks"
 import Image from "next/image";
-import toast from "react-hot-toast";
+import toast, { Toaster } from "react-hot-toast";
 import { useAppSelector } from "@/redux/store";
 
 const URL: string = process.env.NEXT_PUBLIC_BASE_URL!;
@@ -37,43 +38,54 @@ const Page: React.FC = () => {
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    try {
-      setIsLoading(true);
-      const response = await axios.post(`${URL}/api/auth/login`, values, {
-        headers: {
-          "Content-Type": "application/json",
-        },
+    if (!values.username.trim() || !values.password.trim()) {
+      toast.error("Ckeck Your Fields...",{
+        duration:3000
       });
-      const { accessToken, expiresIn, refreshToken, refreshTokenExpiry } =
-        response.data;
-      localStorage.setItem("accessToken", accessToken);
-      localStorage.setItem("refreshToken", refreshToken);
-      localStorage.setItem("accessTokenExpiry", expiresIn);
-      localStorage.setItem("refreshTokenExpiry", refreshTokenExpiry);
+    } else {
+      try {
+        setIsLoading(true);
+        const response = await axios.post(`${URL}/api/auth/login`, values, {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        });
+        setValues(initialState);
+        toast.success("Logged In Successfully...",{
+          duration:3000
+        });
 
-      toast.success("Logged in successfully...");
-      route.push("/dashboard");
-    } catch (error) {
-      if (error instanceof AxiosError) {
-        const message =
-          (error.response &&
-            error.response.data &&
-            error.response.data.message) ||
-          error.message ||
-          error.toString();
-        console.log(message);
+        const { accessToken, expiresIn, refreshToken, refreshTokenExpiry } =
+          response.data;
+        localStorage.setItem("accessToken", accessToken);
+        localStorage.setItem("refreshToken", refreshToken);
+        localStorage.setItem("accessTokenExpiry", expiresIn);
+        localStorage.setItem("refreshTokenExpiry", refreshTokenExpiry);
+      
+        route.push("/dashboard");
+      } catch (error) {
+        if (error instanceof AxiosError) {
+          const message =
+            (error.response &&
+              error.response.data &&
+              error.response.data.message) ||
+            "Network Issue Try Later!";
+            toast.error(message,{
+              duration:3000
+            });
+        }
+        
+      } finally {
+        setIsLoading(false);
       }
-      // unhandled non-AxiosError goes here
-      throw error;
-    } finally {
-      setValues(initialState);
-      setIsLoading(false);
     }
   };
 
   return (
     <main className="h-screen w-full  flex items-center justify-center bg-gray-100  ">
       <div className="h-full w-full  md:flex ">
+        <div><Toaster position="top-right"
+          reverseOrder={false} /></div>
         <div className="h-full flex items-center justify-center flex-col  w-full lg:w-[47%] ">
           <div className="h-[85%] w-[90%] sm:w-[80%] md:w-[70%] lg:w-[75%] flex rounded-lg flex-col items-center bg-white">
             <div className="h-1/4 text-5xl flex items-center  text-black font-semibold">
@@ -105,11 +117,10 @@ const Page: React.FC = () => {
               <div className="text-center  w-full">
                 <button
                   type="submit"
-                  className={`capitalize px-7 mt-2 py-2 tracking-wider rounded-md bg-[#4939FF] text-white w-full text-lg ${
-                    isLoading
-                      ? "bg-gray-400 cursor-not-allowed"
-                      : "bg-[#4939FF] hover:bg-blue-600"
-                  }`}
+                  className={`capitalize px-7 mt-2 py-2 tracking-wider rounded-md bg-[#4939FF] text-white w-full text-lg ${isLoading
+                    ? "bg-gray-400 cursor-not-allowed"
+                    : "bg-[#4939FF] hover:bg-blue-600"
+                    }`}
                 >
                   {isLoading ? <Loader /> : "Sign In"}
                 </button>
@@ -133,7 +144,7 @@ const Page: React.FC = () => {
           </div>
         </div>
         <div className="hidden lg:flex w-[53%] items-center justify-center">
-          <Image src={Img} alt={"login image"} priority />
+          <img src={loginPageImage} alt={"login"} />
         </div>
       </div>
     </main>

@@ -1,6 +1,7 @@
 "use client";
 import Image from "next/image";
 import stats from "../../../src/assets/images/dashboard/stats.png";
+import {statsImage} from "../../../src/assets/cloudinaryImageLinks";
 import { useEffect, useState } from "react";
 import { ILeadsState, IMemberLead, Member } from "@/src/@types";
 import { getAccessToken, getRefreshToken } from "@/src/utils/getTokens";
@@ -169,7 +170,6 @@ const HomePage = () => {
         totalSendDetailsLeads,
       } = leadsData;
 
-      console.log("leads Data", leadsData);
       setLeadsData({
         totalLeads: totalLeadsCount,
         last30DaysLeads: last30DaysLeadsCount,
@@ -247,16 +247,16 @@ const HomePage = () => {
                       key={index}
                       className="bg-white px-5 py-3 flex gap-x-4 shadow-lg items-center  gap-y-3"
                     >
-                      <Image
-                        src={stats}
+                      <img
+                        src={statsImage}
                         alt=""
-                        className="lg:h-16 lg:w-16 h-12 w-12"
+                        className="lg:h-15 lg:w-15 h-11 w-11"
                       />
                       <div className="flex flex-col gap-y-2">
-                        <h2 className="lg:text-xs text-[0.6rem] text-slate-500">
+                        <h2 className="lg:text-sm text-[0.8rem] text-slate-500">
                           {item.title}
                         </h2>
-                        <h1 className="lg:text-3xl  font-semibold text-slate-700">
+                        <h1 className="lg:text-2xl  font-semibold text-slate-700">
                           {item.text}
                         </h1>
                       </div>
@@ -264,16 +264,16 @@ const HomePage = () => {
                   );
                 })}
             </div>
-            <div className=" w-full p-5  shadow">
+            {/* <div className=" w-full p-5  shadow">
               <h2 className="text-xl font-semibold font-sans tracking-wide text-gray-600">
                 Leads Info
               </h2>
-              {/* <TableContainer
+              <TableContainer
                 columnsData={columns}
                 rowsData={membersData}
                 pagination={{ pageSize: 8 }}
-              /> */}
-            </div>
+              />
+            </div> */}
           </>
         )}
       </main>

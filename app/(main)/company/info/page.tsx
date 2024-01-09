@@ -12,7 +12,7 @@ const URL: string = process.env.NEXT_PUBLIC_BASE_URL!;
 
 const Page = () => {
   const [isLoading, setIsLoading] = useState<boolean>(false);
-  const [data, setData] = useState<ICompanyObject[]>();
+  const [data, setData] = useState<ICompanyObject[]>([]);
   const { searchQuery } = useAppSelector(
     (state: { SearchSlice: any }) => state.SearchSlice
   );
@@ -177,7 +177,12 @@ const Page = () => {
             <TableContainer
               columnsData={columns}
               rowsData={data}
-              pagination={{ pageSize: 8 }}
+              pagination={{
+                pageSize: 10,
+                onChange: ()=>{},
+              }}
+               currentPage={1} totalItems={data.length} 
+
             />
           </div>
         )}

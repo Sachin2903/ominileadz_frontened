@@ -5,6 +5,7 @@ import Link from "next/link";
 import React from "react";
 import Img from "../src/assets/amico.png";
 import Image from "next/image";
+import {AsideNavbarImage} from "@/src/assets/cloudinaryImageLinks"
 import { usePathname, useRouter } from "next/navigation";
 import { useAppDispatch, useAppSelector } from "@/redux/store";
 import {
@@ -67,7 +68,7 @@ const Aside: React.FC = () => {
     //   dispatch(setLeadCategoryTextValue("new_leads"));
     // }
   };
-
+console.log(leadCategory,"from lead page")
   return (
     <main className="h-screen w-[17.5rem] bg-[#F6F8F9] xs:flex hidden flex-col items-center justify-evenly py-10">
       <div className="flex flex-col gap-y-10 w-[70%] h-full overflow-y-auto hide-scrollbar py-7">
@@ -75,14 +76,14 @@ const Aside: React.FC = () => {
           <div key={icon.id}>
             <div
               onClick={() => handleMainCategoryClick(icon)}
-              className="cursor-pointer font-semibold text-gray-700 "
+              className="cursor-pointer"
             >
               <Link
                 href={icon.path}
                 className={`flex gap-x-6 hover:text-[#369FFF] cursor-pointer ${
                   isPathActive(icon.path, icon.children)
                     ? "text-[#369FFF]"
-                    : "text-gray-700 "
+                    : "text-gray-600 "
                 }`}
               >
                 <h2 className="text-xl">{icon.icon}</h2>
@@ -101,11 +102,11 @@ const Aside: React.FC = () => {
                         leadCategory === childIcon.value &&
                         pathname === childIcon.parentPath
                           ? "text-[#369FFF]"
-                          : "text-gray-500"
+                          : "text-gray-600"
                       }`}
                     >
                       <h2 className="text-xl"> -</h2>
-                      <h2 className="text-sm">{childIcon.title}</h2>
+                      <h2 className="text-xs">{childIcon.title}</h2>
                     </div>
                   );
                 })}
@@ -116,7 +117,7 @@ const Aside: React.FC = () => {
         ))}
       </div>
       <div className="w-[85%] mt-10">
-        <Image src={Img} alt="aside img" priority />
+        <img src={AsideNavbarImage} alt="aside img"  />
       </div>
     </main>
   );

@@ -18,7 +18,8 @@ const TableContainer = ({
   pagination,
   currentPage,
   totalItems,
-}: TableColumn) => {
+// }: TableColumn|any) => {     //remove because there are some tables that are under development , may cause error in development
+}: any) => {
   const antPagination = {
     current: currentPage,
     pageSize: pagination.pageSize,

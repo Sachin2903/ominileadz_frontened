@@ -2,6 +2,7 @@
 import React from "react";
 import leaf from "../../src/assets/images/landingPage/leaf-right.png";
 import Image from "next/image";
+import {leafRightImage} from "@/src/assets/cloudinaryImageLinks"
 const Hero8 = () => {
   const handleChange = (
     e:
@@ -16,10 +17,10 @@ const Hero8 = () => {
   return (
     <main className="h-[70vh] w-full flex  items-center justify-center bg-[#F9FAFB] flex-col relative">
       <div className="absolute lg:block hidden right-0 top-20  ">
-        <Image src={leaf} alt={""} priority />
+        <img src={leafRightImage} alt={""}/>
       </div>
       <h2 className="lg:text-6xl sm: text-4xl lg:w-[50%] sm:w-[70%] w-[90%] text-[#407BFF] font-semibold">
-        Ready to Start a Business Using a Omnileads?
+        Ready to Start a Business Using a Omnileadz?
       </h2>
       <div className="mt-10 lg:w-[50%] sm:w-[70%] w-[90%] flex items-center justify-center p-4 bg-white border-[0.5px] border-gray-300 rounded flex-col lg:flex-row gap-y-5">
         <input
