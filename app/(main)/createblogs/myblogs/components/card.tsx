@@ -5,12 +5,13 @@ import Image from "next/image";
 import img from "../../../../../src/assets/images/landingPage/h5-img.png"
 import { extractTextFromHTML } from "../utils/utils";
 const Card = ({ key, item }: any) => {
+  // console.log(item?.imagebanner.length>0? item.imagebanner : null)
   return (
     <div className="flex flex-col justify-center w-full">
       <div key={key} className={`border-2 max-w-3xl rounded-lg p-3 ${styles.container}`}>
-        {img && (
+        {item?.imagebanner && (
           <div className={styles.imageContainer}>
-            <Image src={img} alt="" fill className={styles.image} />
+            <Image src={item.imagebanner} alt="" fill className={`rounded-lg ${styles.image}`} />
           </div>
         )}
         <div className={styles.textContainer}>
@@ -22,7 +23,7 @@ const Card = ({ key, item }: any) => {
             </span>
             {/* <span className={`ml-2 ${styles.category}`}>CULTURE</span> */}
           </div>
-          <Link href={`/blogs/${item.slug}`}>
+          <Link href={`https://omni-leadz.vercel.app/blogs/${item.slug}`}>
             <h1 className=" text-2xl font-semibold line-clamp-1">
               {item.title}
             </h1>
@@ -32,7 +33,7 @@ const Card = ({ key, item }: any) => {
             {extractTextFromHTML(item.content)}...
           </p>
           {/* <div className={styles.desc} dangerouslySetInnerHTML={{ __html: item?.desc.substring(0,60) }}/> */}
-          <Link href={`/blogs/${item.slug}`} className={styles.link}>
+          <Link href={`https://omni-leadz.vercel.app/blogs/${item.slug}`} className={styles.link}>
             Read More
           </Link>
         </div>
