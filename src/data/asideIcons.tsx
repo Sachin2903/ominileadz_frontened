@@ -25,38 +25,31 @@ const asideIcons = [
         id: 1,
         title: "New Leads",
         value: "new_leads",
-        // path of parent 
-        parentPath:"/leads",
       },
       {
         id: 2,
         title: "Follow Up",
         value: "follow_up",
-        parentPath:"/leads",
       },
       {
         id: 3,
         title: "Send Details",
         value: "send_details",
-        parentPath:"/leads",
       },
       {
         id: 4,
         title: "Regretted",
-        value:"regretted",
-        parentPath: "/leads",
+        value: "regretted",
       },
       {
         id: 5,
         title: "Quotation",
         value: "quotation",
-        parentPath:"/leads",
       },
       {
         id: 6,
         title: "PO",
         value: "po",
-        parentPath:"/leads",
       },
     ],
   },
@@ -65,7 +58,7 @@ const asideIcons = [
     icon: <AiOutlineCarryOut />,
     path: "/company/info",
     title: "Company",
-    mainCategory: "company",
+    mainCategory: "leads",
     children: [],
   },
   {
@@ -73,7 +66,7 @@ const asideIcons = [
     icon: <LuFolderMinus />,
     path: "/contact/leadsInfo",
     title: "Contact",
-    mainCategory: "contact",
+    mainCategory: "leads",
     children: [],
   },{
     id: 4,
@@ -85,25 +78,21 @@ const asideIcons = [
       id: 1,
       title: "Product",
       value: "product",
-      parentPath:"/store/product",
     },
     {
       id: 2,
       title: "Category",
       value: "category",
-      parentPath:"/store/category",
     },
     {
       id: 3,
       title: "Attribute",
       value: "attribute",
-      parentPath:"/store/attribute",
     },
     {
       id: 4,
       title: "Coupon",
       value: "coupon",
-      parentPath:"/store/coupon",
     }
   ],
   },{
@@ -111,12 +100,11 @@ const asideIcons = [
     icon: <CgWebsite />,
     path: "/website/seo",
     title: "Website",
-    mainCategory: "website",
+    mainCategory: "leads",
     children: [{
       id: 1,
       title: "SEO",
-      value: "seo",
-      parentPath:"/website/seo",
+      value: "new_leads",
     }],
   },
   {
@@ -124,7 +112,7 @@ const asideIcons = [
     icon: <CiSettings />,
     path: "/settings/team",
     title: "Settings",
-    mainCategory: "settings",
+    mainCategory: "leads",
     children: [],
   },
 ];

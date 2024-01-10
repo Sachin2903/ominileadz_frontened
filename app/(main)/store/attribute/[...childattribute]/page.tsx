@@ -16,7 +16,7 @@ export default function ChildAttribute({ params }: any) {
     const [deleteModalOpen,setDeleteModalOpen]=useState(false);
     
     return (
-        <div className="overflow-y-auto w-full  h-full p-3">
+        <div className="overflow-y-auto w-full bg-gray-100 h-full p-3">
             <h1 className="semibold text-lg">Attributes Values</h1>
             <Breadcrumb
                 items={[

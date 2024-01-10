@@ -57,7 +57,7 @@ export default function Page() {
     }, [refresh])
 
     return (
-        <div className="p-4  min-h-full pb-10">
+        <div className="p-4 bg-gray-100 min-h-full pb-10">
             <h1 className="semibold text-lg">Product</h1>
             <BulkActionDrawer BulkActionArray={BulkActionArray} allCategories={allCategories} setAllCategories={setAllCategories} treeData={treeData} setTreeData={setTreeData} refresh={refresh} setRefresh={setRefresh} bulkActionDrawer={bulkActionDrawer} setBulkActionDrawer={setBulkActionDrawer} />
             <DeleteProductModal deleteModalOpen={deleteModalOpen} setDeleteModalOpen={setDeleteModalOpen} refresh={refresh} setRefresh={setRefresh} preFilledData={preFilledData} setPreFilledData={setPreFilledData} BulkActionArray={BulkActionArray} setBulkActionArray={setBulkActionArray} />

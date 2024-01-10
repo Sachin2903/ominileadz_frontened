@@ -17,8 +17,6 @@ type ChildIconType = {
   id: number;
   title: string;
   value: string;
-  // path of parent category
-  parentPath: string;
 };
 
 type AsideIconType = {
@@ -38,11 +36,10 @@ const Aside: React.FC = () => {
   );
   const dispatch = useAppDispatch();
   const isPathActive = (path: string, children?: ChildIconType[]): boolean => {
-    
     if (pathname === path) {
       return true;
     }
-    if (children&&children?.length>0 ) {
+    if (children && pathname === path) {
       return children.some((child) => leadCategory === child.value);
     }
     return false;
@@ -52,24 +49,20 @@ const Aside: React.FC = () => {
   };
 
   const handleChildClick = (child: ChildIconType) => {
-    // navigate to the parent page and set the category of the child
-    router.push(child.parentPath);
     dispatch(setLeadCategoryTextValue(child.value));
-
     if (child.title.toLowerCase() === "follow up") {
       dispatch(setLeadSubCategoryTextValue("all_leads"));
     }
-
     // if (pathname === "/leads") {
     //   dispatch(setLeadCategoryTextValue("new_leads"));
     // }
 
-    // if (pathname !== "/leads") {
-    //   router.push("/leads");
-    //   dispatch(setLeadCategoryTextValue("new_leads"));
-    // }
+    if (pathname !== "/leads") {
+      router.push("/leads");
+      dispatch(setLeadCategoryTextValue("new_leads"));
+    }
   };
-
+console.log(leadCategory,"from lead page")
   return (
     <main className="h-screen w-[17.5rem] bg-[#F6F8F9] xs:flex hidden flex-col items-center justify-evenly py-10">
       <div className="flex flex-col gap-y-10 w-[70%] h-full overflow-y-auto hide-scrollbar py-7">
@@ -99,20 +92,22 @@ const Aside: React.FC = () => {
                     <div
                       key={childIcon.id}
                       onClick={() => handleChildClick(childIcon)}
-                      className={`flex gap-x-4 hover:text-[#369FFF] cursor-pointer mt-5 ml-5 items-center ${
+                      className={`flex  gap-x-4 hover:text-[#369FFF] cursor-pointer mt-5 ml-5 items-center ${
                         leadCategory === childIcon.value &&
-                        pathname === childIcon.parentPath
+                        pathname === icon.path
                           ? "text-[#369FFF]"
                           : "text-gray-600"
                       }`}
                     >
                       <h2 className="text-xl"> -</h2>
-                      <h2 className="text-xs font-semibold">{childIcon.title}</h2>
+                      <h2 className="text-xs">{childIcon.title}</h2>
                     </div>
                   );
                 })}
               </div>
             )}
+
+
 
           </div>
         ))}

@@ -19,7 +19,7 @@ export default function Page() {
     const [treeData, setTreeData] = useState([])
 
     return (
-        <div className="overflow-y-auto w-full  h-full p-3">
+        <div className="overflow-y-auto w-full bg-gray-100 h-full p-3">
             <h1 className="semibold text-lg">Category</h1>
             <BulkCategoryActionDrawer setTreeData={setTreeData} BulkActionArra={BulkActionArray} setBulkActionArray={setBulkActionArray} bulkActionDrawer={bulkActionDrawer} setBulkActionDrawer={setBulkActionDrawer} BulkActionArray={BulkActionArray} treeData={treeData} refresh={refresh} setRefresh={setRefresh} />
             <AddCategoryDrawer treeData={treeData} setTreeData={setTreeData} preFilledData={preFilledData} setPreFilledData={setPreFilledData} setTableData={setTableData} refresh={refresh} setRefresh={setRefresh} openAddCategory={openAddCategory} setOpenAddCategory={setOpenAddCategory} />

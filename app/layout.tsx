@@ -13,7 +13,7 @@ const metadata: Metadata = {
 function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
-      <body className={`${inter.className} `}>
+      <body className={inter.className}>
         <Providers>
           <Toaster position="top-right" />
           <div className="">{children}</div>

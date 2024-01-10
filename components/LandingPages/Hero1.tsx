@@ -7,11 +7,11 @@ import {hero1MainImage} from "@/src/assets/cloudinaryImageLinks"
 
 const Hero1 = () => {
   return (
-    <main className="overflow-x-hidden min-h-screen  bg-gradient-to-br from-[#FEFEFE] from-20% to-[#407BFF] to-100% lg:px-20 px-5 nbt:px-1 nbt:pb-4 py-10">
+    <main className="overflow-x-hidden h-fit md:h-screen bg-gradient-to-br from-[#FEFEFE] from-20% to-[#407BFF] to-100% lg:px-20 px-5 nbt:px-1 nbt:pb-4 py-10">
       <Hero1Navbar />
 
-      <div className="grid  grid-cols-1 md:grid-cols-2  ">
-        <div className="h-[32rem] p-5 flex col-span-2 md:col-span-1 flex-col justify-evenly">
+      <div className="grid grid-cols-1 md:grid-cols-2  ">
+        <div className=" h-[32rem] p-5 flex col-span-2 md:col-span-1 flex-col justify-evenly">
           <div className="  bg-gradient-to-r from-[#B5CCFF] from-10% to-[#004FFF] to-100% lg:w-[45%] w-[88%] text-white font-mono tracking-widest flex px-2 gap-x-3 items-center whitespace-nowrap">
             <div className="w-4 h-4 bg-[#D9D9D9] "></div>
             LEADS MANAGEMENT
