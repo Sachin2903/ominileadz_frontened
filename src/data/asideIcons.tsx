@@ -5,6 +5,7 @@ import { CiSettings } from "react-icons/ci";
 import { AiOutlineCarryOut } from "react-icons/ai";
 import {IoStorefrontSharp} from "react-icons/io5";
 import { CgWebsite } from "react-icons/cg";
+import { SiMicrodotblog } from "react-icons/si";
 const asideIcons = [
   {
     id: 0,
@@ -95,8 +96,26 @@ const asideIcons = [
       value: "coupon",
     }
   ],
-  },{
-    id: 5,
+  },
+  {
+    id:5,
+    icon: <SiMicrodotblog />,
+    path: "/createblogs",
+    title: "Blog",
+    mainCategory: "createblogs",
+    children: [{
+      id: 1,
+      title: "Edit",
+      value: "edit",
+    },
+    {
+      id: 2,
+      title: "My Blogs",
+      value: "myblogs",
+    }],
+  },
+  {
+    id: 6,
     icon: <CgWebsite />,
     path: "/website/seo",
     title: "Website",
@@ -108,7 +127,7 @@ const asideIcons = [
     }],
   },
   {
-    id:6,
+    id:7,
     icon: <CiSettings />,
     path: "/settings/team",
     title: "Settings",

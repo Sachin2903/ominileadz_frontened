@@ -5,7 +5,6 @@ import Link from "next/link";
 import React from "react";
 import Img from "../src/assets/amico.png";
 import Image from "next/image";
-import {AsideNavbarImage} from "@/src/assets/cloudinaryImageLinks"
 import { usePathname, useRouter } from "next/navigation";
 import { useAppDispatch, useAppSelector } from "@/redux/store";
 import {
@@ -56,8 +55,13 @@ const Aside: React.FC = () => {
     // if (pathname === "/leads") {
     //   dispatch(setLeadCategoryTextValue("new_leads"));
     // }
-
-    if (pathname !== "/leads") {
+    else if(child.value.toLowerCase() === "edit"){
+      router.push("/createblogs/edit");
+    }
+    else if(child.value.toLowerCase() === "myblogs"){
+      router.push("/createblogs/myblogs");
+    }
+    if (pathname !== "/leads" && pathname !== "/createblogs" && pathname !== "/createblogs/myblogs"  && pathname !== "/createblogs/edit") {
       router.push("/leads");
       dispatch(setLeadCategoryTextValue("new_leads"));
     }
@@ -113,7 +117,7 @@ console.log(leadCategory,"from lead page")
         ))}
       </div>
       <div className="w-[85%] mt-10">
-        <img src={AsideNavbarImage} alt="aside img"  />
+        <Image src={Img} alt="aside img" priority />
       </div>
     </main>
   );
