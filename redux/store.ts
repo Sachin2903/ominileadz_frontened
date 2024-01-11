@@ -1,7 +1,7 @@
 import { configureStore } from "@reduxjs/toolkit";
 import modalReducer from "./features/modal/modalSlice";
 
-import tasksIdSlice from "./features/tasksId/taskIdSlice";
+import mainIdSlice from "./features/mainId/mainIdSlice";
 import taskRecordSlice from "./features/taskRecord/taskRecordSlice";
 import SearchSlice from "./features/search/SearchSlice";
 import filterLeadsSlice from "./features/filterLeads/filterLeadsSlice";
@@ -10,7 +10,7 @@ import { TypedUseSelectorHook, useDispatch, useSelector } from "react-redux";
 export const store = configureStore({
   reducer: {
     modal: modalReducer,
-    tasksIdSlice,
+    mainIdSlice,
     taskRecordSlice,
     SearchSlice,
     filterLeadsSlice,

@@ -106,9 +106,7 @@ const Navbar: React.FC<INavbarProps> = ({
 
   const handleLogout = () => {
     localStorage.clear();
-    setTimeout(() => {
-      router.push("/");
-    }, 500);
+    router.replace("/login")
   };
 
   useEffect(() => {

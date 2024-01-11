@@ -13,12 +13,12 @@ const SmallAside = () => {
   }, []);
 
   return (
-    <main className="fixed bottom-0 z-50 bg-[#F6F8F9] flex items-center w-screen h-20 xs:hidden">
+    <main className="fixed bottom-0 z-40 bg-[#F6F8F9] flex items-center w-screen h-20 xs:hidden">
       <div className="box-content flex w-[100%] overflow-x-scroll  hide-scrollbar gap-2  items-center justify-around">
         <div className="w-4 h-full">
         </div>
-        {asideIcons.map((icon, index) => (
-          
+        {
+        asideIcons.map((icon, index) => (
           <Link
             href={icon.path}
             key={index}

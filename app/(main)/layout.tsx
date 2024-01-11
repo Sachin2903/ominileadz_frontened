@@ -1,5 +1,5 @@
 "use client";
-import React, { ReactNode } from "react";
+import React, { ReactNode, useEffect, useReducer, useState } from "react";
 import {
   AddGroupMemberModal,
   AddGroupModal,
@@ -24,12 +24,19 @@ import AddSyncLeadsModal from "@/components/modals/AddSyncLeads";
 import FeedbackModal from "@/components/modals/FeedbackModal";
 import AddcontactDetailsModal from "@/components/modals/AddContactDetailsModal";
 import UpdateTeamMemberModel from "@/components/modals/UpdateTeamMemberModal";
-
+import Lottie from 'lottie-react';
+import bar_lottie_animation from "@/src/assets/lottie_animation/bar-loader.json";
+import jwtDecode from 'jwt-decode';
+import { useRouter } from "next/navigation";
+import axios from "axios";
+import toast, { Toaster } from "react-hot-toast";
 type MainLayoutProps = {
   children: ReactNode;
 };
 
 const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
+  const router = useRouter();
+  const [mainLoader, setMainLoader] = useState<boolean>(true)
   const dispatch = useAppDispatch();
 
   // modal slice
@@ -58,22 +65,71 @@ const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
     (state: { taskRecordSlice: any }) => state.taskRecordSlice
   );
 
-  const { leadId, contactId, teamId, businessId, groupId } = useAppSelector(
-    (state: { tasksIdSlice: any }) => state.tasksIdSlice
+  const { feature, businessId, userId } = useAppSelector(
+    (state: { mainIdSlice: any }) => state.mainIdSlice
   );
-
+console.log("state data",feature, businessId, userId)
   const handleInputChange = (query: string) => {
     dispatch(setSearchQuery(query));
   };
 
+
+  // store feature and other details
+  useEffect(() => {
+    function logOut(dataToDesplay="Session Expire") {
+      toast.error(dataToDesplay, {
+        duration: 1500
+      })
+      localStorage.clear();
+      router.replace("/login")
+    }
+    async function extractDataFromJWT() {
+      try {
+        let accessToken = localStorage.getItem("accessToken");
+        let expireAccessToken = localStorage.getItem("accessTokenExpiry"); // Correct variable name
+
+        if (expireAccessToken) {
+          if (Number(expireAccessToken) < Number(Date.now())) {
+            logOut()
+          }
+        } else {
+          logOut()
+        }
+        if (accessToken) {
+          const decodedToken: any = jwtDecode(accessToken);
+          if (decodedToken && decodedToken.feature && decodedToken.sub && decodedToken.business) {
+            console.log(decodedToken.feature, decodedToken.sub, decodedToken.business)
+          } else {
+            logOut()
+          }
+        } else {
+          logOut()
+        }
+      } catch (error) {
+        logOut("Internet Issue!")
+      }
+    }
+
+    extractDataFromJWT();
+    let timeoutId=setTimeout(()=>{
+      setMainLoader(false)
+    },2000)
+
+    return ()=>clearTimeout(timeoutId)
+  }, []);
+
+
+
+
   return (
     <div className="flex ">
+      <Toaster position="top-right" />
       <Aside />
       {/* dashboard page modals */}
       {isMemberLeadsInfoModalOpen && <MemberLeadsInfoModal record={record} />}
 
       {/* leads page modals */}
-      {isFeedbackModalOpen && leadId && <FeedbackModal leadId={leadId} />}
+      {/* {isFeedbackModalOpen && leadId && <FeedbackModal leadId={leadId} />} */}
       {isAddSyncLeadsModalOpen && <AddSyncLeadsModal />}
       {isAddLeadsManuallyModalOpen && <AddLeadsManually />}
 
@@ -81,14 +137,14 @@ const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
       {isAddCompanyInfoModalOpen && <AddCompanyInfo />}
 
       {/* Contacts page modals */}
-      {isUpdateContactIdModalOpen && (
+      {/* {isUpdateContactIdModalOpen && (
         <EditContactDetailsModal contactId={contactId} />
-      )}
+      )} */}
       {isAddContactDetailsModalOpen && <AddcontactDetailsModal />}
 
       {/* Settings Page modals */}
       {/* settings team page modals */}
-      {isUpdateTeamMemberModalOpen && <UpdateTeamMemberModel teamId={teamId} />}
+      {/* {isUpdateTeamMemberModalOpen && <UpdateTeamMemberModel teamId={teamId} />} */}
       {isModalOpen && <TeamMemberModel />}
 
       {/* settings businessDetails modals */}
@@ -99,11 +155,22 @@ const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
       {/* settings group modals  */}
 
       {isAddGroupModalOpen && <AddGroupModal />}
-      {isUpdateGroupMemberModalOpen && (
+      {/* {isUpdateGroupMemberModalOpen && (
         <AddGroupMemberModal groupId={groupId} />
-      )}
+      )} */}
 
-      <div className="w-full overflow-y-auto max-h-screen">
+      {
+        mainLoader ? <div className="flex justify-center items-center absolute z-[10000] top-0 w-screen h-screen bg-gray-50">
+          <Lottie
+            animationData={bar_lottie_animation}
+            loop={true}
+            autoPlay={true}
+            style={{ width: '300px', height: '300px' }}
+          />
+        </div> : null
+      }
+
+      <div className="w-full z-[1000]  overflow-y-auto max-h-screen">
         <Navbar
           placeholder="Search "
           inputValue={searchQuery}
