@@ -1,7 +1,7 @@
 // import CardList from "@/components/blogComponents/cardList/CardList";
-"use client"
+"use client";
 import { useState, useEffect } from "react";
-import Card from "./components/card"
+import Card from "./components/card";
 import Link from "next/link";
 
 const URL: string = process.env.NEXT_PUBLIC_BASE_URL!;
@@ -11,10 +11,10 @@ const Myblogs = () => {
   useEffect(() => {
     const getBlog = async () => {
       try {
-        const response = await fetch(`${URL}/blog`);
+        const response = await fetch(`${URL}/blog/user/omnileadz@gmail.com`);
         if (response.ok) {
           const responseData = await response.json();
-          setBlogcontent(responseData)
+          setBlogcontent(responseData);
           console.log(responseData);
         } else {
           console.error("Image upload failed:", response.statusText);
@@ -27,12 +27,14 @@ const Myblogs = () => {
   }, []);
 
   return (
-    <div className="mt-5 flex flex-col justify-center w-full ">
-        {blogcontent.map((item:any, key:any) => (
-       <Card key={key} item={item}/>
-        ))}
+    <div className="flex justify-center">
+      <div className="mt-5 flex flex-col justify-center">
+      {blogcontent.length > 0 && blogcontent.map((item: any, key: any) => (
+        <Card key={key} item={item} />
+      ))}
     </div>
-  )
-}
+    </div>
+  );
+};
 
-export default Myblogs
+export default Myblogs;

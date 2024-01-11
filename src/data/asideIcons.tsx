@@ -72,7 +72,7 @@ const asideIcons = [
   },{
     id: 4,
     icon: <IoStorefrontSharp/>,
-    path: "/store/product",
+    path: "/store",
     title: "Store",
     mainCategory: "store",
     children: [{
@@ -102,14 +102,20 @@ const asideIcons = [
     icon: <SiMicrodotblog />,
     path: "/createblogs",
     title: "Blog",
-    mainCategory: "createblogs",
-    children: [{
-      id: 1,
+    mainCategory: "blogs",
+    children: [
+      {
+        id: 1,
+        title: "Create",
+        value: "create",
+      },
+      {
+      id: 2,
       title: "Edit",
       value: "edit",
     },
     {
-      id: 2,
+      id: 3,
       title: "My Blogs",
       value: "myblogs",
     }],
@@ -117,13 +123,13 @@ const asideIcons = [
   {
     id: 6,
     icon: <CgWebsite />,
-    path: "/website/seo",
+    path: "/website",
     title: "Website",
     mainCategory: "leads",
     children: [{
       id: 1,
       title: "SEO",
-      value: "new_leads",
+      value: "seo",
     }],
   },
   {
