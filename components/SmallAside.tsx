@@ -11,7 +11,7 @@ const SmallAside = () => {
   useEffect(() => {
     setPath(window.location.pathname);
   }, []);
-  console.log(path)
+
   return (
     <main className="fixed bottom-0 z-50 bg-[#F6F8F9] flex items-center w-screen h-20 xs:hidden">
       <div className="box-content flex w-[100%] overflow-x-scroll  hide-scrollbar gap-2  items-center justify-around">
@@ -26,7 +26,7 @@ const SmallAside = () => {
               }`}
           >
             <h2 className=" text-2xl">{icon.icon}</h2>
-            <h2 className=" text-xs">{icon.title}</h2>
+            <h2 className="font-semibold text-xs">{icon.title}</h2>
           </Link>
         ))}
       </div>

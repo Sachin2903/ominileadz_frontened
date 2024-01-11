@@ -4,7 +4,7 @@ import { useState } from "react";
 import axios, { AxiosError } from "axios";
 import { useRouter } from "next/navigation";
 import Img from "@/src/assets/login.png";
-import {loginPageImage} from "@/src/assets/cloudinaryImageLinks"
+import { loginPageImage } from "@/src/assets/cloudinaryImageLinks"
 import Image from "next/image";
 import toast, { Toaster } from "react-hot-toast";
 import { useAppSelector } from "@/redux/store";
@@ -39,8 +39,8 @@ const Page: React.FC = () => {
     e.preventDefault();
 
     if (!values.username.trim() || !values.password.trim()) {
-      toast.error("Ckeck Your Fields...",{
-        duration:3000
+      toast.error("Ckeck Your Fields...", {
+        duration: 3000
       });
     } else {
       try {
@@ -51,18 +51,18 @@ const Page: React.FC = () => {
           },
         });
         setValues(initialState);
-        toast.success("Logged In Successfully...",{
-          duration:3000
-        });
+        const { accessToken, expiresIn, refreshToken, refreshTokenExpiry } =await response.data;
 
-        const { accessToken, expiresIn, refreshToken, refreshTokenExpiry } =
-          response.data;
         localStorage.setItem("accessToken", accessToken);
         localStorage.setItem("refreshToken", refreshToken);
         localStorage.setItem("accessTokenExpiry", expiresIn);
         localStorage.setItem("refreshTokenExpiry", refreshTokenExpiry);
-      
+
+        toast.success("Logged In Successfully...", {
+          duration: 3000
+        });
         route.push("/dashboard");
+        
       } catch (error) {
         if (error instanceof AxiosError) {
           const message =
@@ -70,11 +70,11 @@ const Page: React.FC = () => {
               error.response.data &&
               error.response.data.message) ||
             "Network Issue Try Later!";
-            toast.error(message,{
-              duration:3000
-            });
+          toast.error(message, {
+            duration: 3000
+          });
         }
-        
+
       } finally {
         setIsLoading(false);
       }
