@@ -80,6 +80,7 @@ const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
 
   // store feature and other details
   useEffect(() => {
+    console.log("useEffect triggers")
     function logOut(dataToDesplay="Session Expire") {
       toast.error(dataToDesplay, {
         duration: 1500

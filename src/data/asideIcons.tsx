@@ -147,7 +147,7 @@ const asideIcons = [
   },
   {
     id:7,
-    status:true,
+    status:false,
     icon: <CiSettings />,
     path: "/settings/team",
     title: "Settings",

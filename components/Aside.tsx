@@ -85,8 +85,12 @@ const Aside: React.FC = () => {
           <div key={icon.id}>
             <div className="">
               {icon.path !== "/leads" && icon.path !== "/store" && icon.path !=="/website" && icon.path !=="/createblogs" ? (
-                <Link
-                  href={icon.status?icon.path:""}
+                <div
+                  onClick={()=>{
+                    if(icon.status){
+                    router.push(icon.path)
+                    }
+                  }}
                   className={`flex  gap-x-6 hover:text-[#369FFF] cursor-pointer 
                  ${
                    isPathActive(icon.path, icon.children)
@@ -105,11 +109,13 @@ const Aside: React.FC = () => {
                   <h2 className="text-sm">{icon.title}</h2>
                   {!icon.status?<IoMdLock className="hover:text-red-500 w-5"/>:null}
                   
-                </Link>
+                </div>
               ) : (
                 <>
                   <div
-                    onClick={() => handleMainCategoryClick(icon)}
+                    onClick={() =>{
+                      if(icon.status)
+                      handleMainCategoryClick(icon)} }
                     className={`flex  gap-x-6 hover:text-[#369FFF]  cursor-pointer
                  ${
                    isPathActive(icon.path, icon.children)
