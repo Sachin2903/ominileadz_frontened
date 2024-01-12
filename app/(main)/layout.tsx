@@ -116,7 +116,7 @@ const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
     },3000)
 
     return ()=>clearTimeout(timeoutId)
-  }, [mainLoader]);
+  }, []);
 
 
 
