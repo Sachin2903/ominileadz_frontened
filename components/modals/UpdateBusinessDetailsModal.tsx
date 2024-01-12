@@ -153,7 +153,7 @@ const UpdateBusinessDetailsModal: React.FC<UpdateBusinessDetailsModalProps> = ({
   }, []);
 
   return (
-    <main className="h-full w-full flex items-center justify-center z-20 fixed bg-black bg-opacity-60">
+    <main className="h-full w-full flex items-center justify-center z-[300] fixed bg-black bg-opacity-60">
       <div className="h-auto lg:w-[90%] w-[80%] bg-white  rounded-md  py-5 z-30 flex flex-col relative items-center ">
         <h2 className="md:text-3xl text-xl sm:mb-10 text-center font-semibold ">
           Update Business{" "}

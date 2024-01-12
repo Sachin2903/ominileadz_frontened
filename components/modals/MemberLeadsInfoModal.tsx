@@ -154,7 +154,7 @@ const MemberLeadsInfoModal: React.FC<IMemberLeadsInfoModalProps> = ({
     fetchLeadsData();
   }, []);
   return (
-    <main className="h-screen w-full flex items-center justify-center z-20 fixed bg-black bg-opacity-60">
+    <main className="h-screen w-full flex items-center justify-center z-[300] fixed bg-black bg-opacity-60">
       <div className="max-h-[85%] h-[85%] relative w-[80%] bg-white  rounded-md  z-30 flex mb-10 xs:mb-0 justify-center py-10 overflow-y-auto">
         <CloseGrButton
           className="left-5"

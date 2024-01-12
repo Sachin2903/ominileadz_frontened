@@ -394,7 +394,7 @@ const FeedbackModal: React.FC<FeedbackModalProps> = ({ leadId }) => {
 
   return (
     <form
-      className="h-full w-full flex xs:items-center items-start justify-center  z-20 fixed bg-black bg-opacity-60"
+      className="h-full w-full flex xs:items-center items-start justify-center  z-[300] fixed bg-black bg-opacity-60"
       onSubmit={handleSubmit}
     >
       {loading ? (

@@ -144,7 +144,7 @@ const EditContactDetailsModal: React.FC<contactDetailsProps> = ({
   }, []);
 
   return (
-    <main className="h-full w-full flex items-center justify-center z-20 fixed bg-black bg-opacity-60">
+    <main className="h-full w-full flex items-center justify-center z-[300] fixed bg-black bg-opacity-60">
       <div className="xs:h-[90vh] h-[80vh] overflow-auto lg:w-[90%] w-[80%] bg-white  rounded-md  py-5 z-30 flex flex-col relative items-center mb-20 xs:mb-0">
         <h2 className="md:text-3xl text-xl mb-10 text-center font-semibold ">
           Edit Contact{" "}

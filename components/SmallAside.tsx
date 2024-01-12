@@ -18,17 +18,17 @@ const SmallAside = () => {
         <div className="w-4 h-full">
         </div>
         {
-        asideIcons.map((icon, index) => (
-          <Link
-            href={icon.path}
-            key={index}
-            className={`flex flex-col items-center gap-y-2 hover:text-[#369FFF] cursor-pointer ${icon.path === path ? "text-[#369FFF]" : "text-[#9d9c9c]"
-              }`}
-          >
-            <h2 className=" text-2xl">{icon.icon}</h2>
-            <h2 className="font-semibold text-xs">{icon.title}</h2>
-          </Link>
-        ))}
+          asideIcons.filter((icon) => icon.status).map((icon, index) => (
+            <Link
+              href={icon.path}
+              key={index}
+              className={`flex flex-col items-center gap-y-2 hover:text-[#369FFF] cursor-pointer ${icon.path === path ? "text-[#369FFF]" : "text-[#9d9c9c]"
+                }`}
+            >
+              <h2 className=" text-2xl">{icon.icon}</h2>
+              <h2 className="font-semibold text-xs">{icon.title}</h2>
+            </Link>
+          ))}
       </div>
     </main>
 

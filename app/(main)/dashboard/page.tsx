@@ -12,6 +12,7 @@ import { openMemberLeadsInfoModal } from "@/redux/features/modal/modalSlice";
 import { useAppDispatch } from "@/redux/hooks";
 import { setMemberLeadRecord } from "@/redux/features/taskRecord/taskRecordSlice";
 import { useAppSelector } from "@/redux/store";
+import { useRouter } from "next/navigation";
 const URL: string = process.env.NEXT_PUBLIC_BASE_URL!;
 
 interface IStatsDataItem {
@@ -71,6 +72,7 @@ let statsDataInitialState: IStatsDataItem[] = [
 ];
 
 const HomePage = () => {
+  const router=useRouter()
   const [leadsData, setLeadsData] = useState({
     totalLeads: 0,
     last30DaysLeads: 0,
@@ -85,8 +87,13 @@ const HomePage = () => {
   const [statsData, setStatsData] = useState<IStatsDataItem[]>(
     statsDataInitialState
   );
-
+  const { business}:{business:string} = useAppSelector(
+    (state: { mainSlice: any }) => state.mainSlice
+  );
+  console.log(business,"from dashboard page")
   const dispatch = useAppDispatch();
+  
+
 
   const columns = [
     {
@@ -137,8 +144,11 @@ const HomePage = () => {
       ),
     },
   ];
-
-  const fetchLeadsData = async () => {
+function logout(){
+  localStorage.clear();
+  router.replace("/login")
+}
+  const fetchLeadsData = async (businessIdString:string) => {
     try {
       setIsLoading(true);
 
@@ -146,14 +156,14 @@ const HomePage = () => {
       const refreshToken = getRefreshToken();
 
       if (!accessToken || !refreshToken) {
-        throw new Error("Access token or refresh token is missing or invalid.");
+        logout()
       }
 
       const headers = {
         Authorization: `Bearer ${accessToken}`,
       };
       const response = await axios.get(
-        `${URL}/api/leads/findAllLeadsDetailsCount`,
+        `${URL}/api/leads/findAllLeadsDetailsCount/${businessIdString}`,
         {
           headers,
         }
@@ -224,8 +234,9 @@ const HomePage = () => {
   };
 
   useEffect(() => {
-    fetchLeadsData();
-  }, []);
+    if(business)
+    fetchLeadsData(business);
+  }, [business]);
 
   return (
     <>

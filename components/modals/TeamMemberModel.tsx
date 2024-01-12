@@ -114,7 +114,7 @@ const TeamMemberModel = () => {
   };
 
   return (
-    <main className="h-full w-full flex items-center justify-center z-20 fixed bg-black bg-opacity-60">
+    <main className="h-full w-full flex items-center justify-center z-[300] fixed bg-black bg-opacity-60">
       <div className="h-auto md:h-[90%] lg:w-[80%] w-[80%] bg-white  rounded-md  py-5 z-30 flex relative items-center justify-center ">
         <div
           className="absolute top-5 left-5 text-xl cursor-pointer"

@@ -11,7 +11,7 @@ import {
   setLeadCategoryTextValue,
   setLeadSubCategoryTextValue,
 } from "@/redux/features/filterLeads/filterLeadsSlice";
-
+import { IoMdLock } from "react-icons/io";
 type ChildIconType = {
   id: number;
   title: string;
@@ -86,7 +86,7 @@ const Aside: React.FC = () => {
             <div className="">
               {icon.path !== "/leads" && icon.path !== "/store" && icon.path !=="/website" && icon.path !=="/createblogs" ? (
                 <Link
-                  href={icon.path}
+                  href={icon.status?icon.path:""}
                   className={`flex  gap-x-6 hover:text-[#369FFF] cursor-pointer 
                  ${
                    isPathActive(icon.path, icon.children)
@@ -100,19 +100,23 @@ const Aside: React.FC = () => {
                  }
                 `}
                 >
+                
                   <h2 className="text-xl">{icon.icon}</h2>
                   <h2 className="text-sm">{icon.title}</h2>
+                  {!icon.status?<IoMdLock className="hover:text-red-500 w-5"/>:null}
+                  
                 </Link>
               ) : (
                 <>
                   <div
                     onClick={() => handleMainCategoryClick(icon)}
-                    className={`flex  gap-x-6 hover:text-[#369FFF]  pointer-events-none
+                    className={`flex  gap-x-6 hover:text-[#369FFF]  cursor-pointer
                  ${
                    isPathActive(icon.path, icon.children)
                      ? "text-[#369FFF]"
                      : ""
                  }
+                 .
                  ${
                    pathname.startsWith(icon.path)
                      ? "text-[#369FFF]"
@@ -120,14 +124,15 @@ const Aside: React.FC = () => {
                  }
                 `}
                   >
-                    <h2 className="text-xl">{icon.icon}</h2>
-                    <h2 className="text-sm">{icon.title}</h2>
+                    <h2 className="cursor-pointer text-xl">{icon.icon}</h2>
+                    <h2 className="cursor-pointer text-sm">{icon.title}</h2>
+                    {!icon.status?<IoMdLock className="hover:text-red-500 w-5"/>:null}
                   </div>
                 </>
               )}
             </div>
 
-            {icon.children && (
+            {icon.status&&icon.children && (
               <div className="flex flex-col overflow-y-auto">
                 {icon.children.map((childIcon) => {
                   const isChildActive =

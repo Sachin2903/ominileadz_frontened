@@ -179,7 +179,7 @@ const AddGroupMember = () => {
     fetchTeamMembers();
   }, []);
   return (
-    <main className="h-screen w-full flex items-center justify-center z-20 fixed bg-black bg-opacity-60">
+    <main className="h-screen w-full flex items-center justify-center z-[300] fixed bg-black bg-opacity-60">
       <div className="max-h-[88%] h-[87%] relative w-[80%] bg-white  rounded-md  z-30 flex justify-center items-center overflow-y-auto">
         <CloseGrButton
           className="left-5"

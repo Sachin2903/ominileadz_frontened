@@ -6,9 +6,15 @@ import { AiOutlineCarryOut } from "react-icons/ai";
 import {IoStorefrontSharp} from "react-icons/io5";
 import { CgWebsite } from "react-icons/cg";
 import { SiMicrodotblog } from "react-icons/si";
+
+
+
+
 const asideIcons = [
   {
+
     id: 0,
+    status:true,
     icon: <GoHome />,
     path: "/dashboard",
     title: "Dashboard",
@@ -17,6 +23,7 @@ const asideIcons = [
   },
   {
     id: 1,
+    status:true,
     icon: <MdOutlineAutoAwesomeMosaic />,
     path: "/leads",
     mainCategory: "new_leads",
@@ -56,14 +63,17 @@ const asideIcons = [
   },
   {
     id: 2,
+    status:false,
     icon: <AiOutlineCarryOut />,
     path: "/company/info",
     title: "Company",
     mainCategory: "leads",
     children: [],
+    
   },
   {
     id: 3,
+    status:false,
     icon: <LuFolderMinus />,
     path: "/contact/leadsInfo",
     title: "Contact",
@@ -71,6 +81,7 @@ const asideIcons = [
     children: [],
   },{
     id: 4,
+    status:false,
     icon: <IoStorefrontSharp/>,
     path: "/store",
     title: "Store",
@@ -99,6 +110,7 @@ const asideIcons = [
   },
   {
     id:5,
+    status:false,
     icon: <SiMicrodotblog />,
     path: "/createblogs",
     title: "Blog",
@@ -122,6 +134,7 @@ const asideIcons = [
   },
   {
     id: 6,
+    status:false,
     icon: <CgWebsite />,
     path: "/website",
     title: "Website",
@@ -134,6 +147,7 @@ const asideIcons = [
   },
   {
     id:7,
+    status:true,
     icon: <CiSettings />,
     path: "/settings/team",
     title: "Settings",

@@ -7,7 +7,7 @@ interface IinitialState {
 }
 
 let initialState: IinitialState = {
-  leadCategory: "",
+  leadCategory: "new_leads",
   leadSubCategory: "",
   leadSaveToggle: false,
 };

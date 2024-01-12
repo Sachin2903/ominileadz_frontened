@@ -17,6 +17,7 @@ import {
   setCompaniesQuery,
   setSearchQuery,
 } from "@/redux/features/search/SearchSlice";
+import { updateMainLoaderValue,setMainSliceValue } from "@/redux/features/mainSlice/mainSlice";
 import { useAppDispatch } from "@/redux/store";
 import MemberLeadsInfoModal from "@/components/modals/MemberLeadsInfoModal";
 import AddLeadsManually from "@/components/modals/AddLeadsManually";
@@ -36,9 +37,12 @@ type MainLayoutProps = {
 
 const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
   const router = useRouter();
-  const [mainLoader, setMainLoader] = useState<boolean>(true)
   const dispatch = useAppDispatch();
 
+  const { mainLoader,feature,business,userId}:{mainLoader:boolean,feature:boolean[],business:string,userId:string} = useAppSelector(
+    (state: { mainSlice: any }) => state.mainSlice
+  );
+  console.log(mainLoader,feature,business,userId)
   // modal slice
   const {
     isMemberLeadsInfoModalOpen,
@@ -65,10 +69,10 @@ const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
     (state: { taskRecordSlice: any }) => state.taskRecordSlice
   );
 
-  const { feature, businessId, userId } = useAppSelector(
-    (state: { mainIdSlice: any }) => state.mainIdSlice
+  const { leadId, contactId, teamId, businessId, groupId } = useAppSelector(
+    (state: { tasksIdSlice: any }) => state.tasksIdSlice
   );
-console.log("state data",feature, businessId, userId)
+
   const handleInputChange = (query: string) => {
     dispatch(setSearchQuery(query));
   };
@@ -84,7 +88,6 @@ console.log("state data",feature, businessId, userId)
       router.replace("/login")
     }
     async function extractDataFromJWT() {
-      try {
         let accessToken = localStorage.getItem("accessToken");
         let expireAccessToken = localStorage.getItem("accessTokenExpiry"); // Correct variable name
 
@@ -96,27 +99,24 @@ console.log("state data",feature, businessId, userId)
           logOut()
         }
         if (accessToken) {
-          const decodedToken: any = jwtDecode(accessToken);
+          const decodedToken: { feature: string; sub: string; business: string } = jwtDecode(accessToken);
+        
           if (decodedToken && decodedToken.feature && decodedToken.sub && decodedToken.business) {
-            console.log(decodedToken.feature, decodedToken.sub, decodedToken.business)
+           //@ts-ignore
+            dispatch(setMainSliceValue({ business: decodedToken.business.toString(), featureValue:decodedToken.feature.toString(), userId: decodedToken.sub.toString() }));
           } else {
-            logOut()
+            logOut();
           }
-        } else {
-          logOut()
         }
-      } catch (error) {
-        logOut("Internet Issue!")
-      }
     }
 
     extractDataFromJWT();
     let timeoutId=setTimeout(()=>{
-      setMainLoader(false)
-    },2000)
+      dispatch(updateMainLoaderValue(false))
+    },3000)
 
     return ()=>clearTimeout(timeoutId)
-  }, []);
+  }, [mainLoader]);
 
 
 
@@ -129,7 +129,7 @@ console.log("state data",feature, businessId, userId)
       {isMemberLeadsInfoModalOpen && <MemberLeadsInfoModal record={record} />}
 
       {/* leads page modals */}
-      {/* {isFeedbackModalOpen && leadId && <FeedbackModal leadId={leadId} />} */}
+      {isFeedbackModalOpen && leadId && <FeedbackModal leadId={leadId} />}
       {isAddSyncLeadsModalOpen && <AddSyncLeadsModal />}
       {isAddLeadsManuallyModalOpen && <AddLeadsManually />}
 
@@ -137,14 +137,14 @@ console.log("state data",feature, businessId, userId)
       {isAddCompanyInfoModalOpen && <AddCompanyInfo />}
 
       {/* Contacts page modals */}
-      {/* {isUpdateContactIdModalOpen && (
+      {isUpdateContactIdModalOpen && (
         <EditContactDetailsModal contactId={contactId} />
-      )} */}
+      )}
       {isAddContactDetailsModalOpen && <AddcontactDetailsModal />}
 
       {/* Settings Page modals */}
       {/* settings team page modals */}
-      {/* {isUpdateTeamMemberModalOpen && <UpdateTeamMemberModel teamId={teamId} />} */}
+      {isUpdateTeamMemberModalOpen && <UpdateTeamMemberModel teamId={teamId} />}
       {isModalOpen && <TeamMemberModel />}
 
       {/* settings businessDetails modals */}
@@ -155,9 +155,9 @@ console.log("state data",feature, businessId, userId)
       {/* settings group modals  */}
 
       {isAddGroupModalOpen && <AddGroupModal />}
-      {/* {isUpdateGroupMemberModalOpen && (
+      {isUpdateGroupMemberModalOpen && (
         <AddGroupMemberModal groupId={groupId} />
-      )} */}
+      )}
 
       {
         mainLoader ? <div className="flex justify-center items-center absolute z-[10000] top-0 w-screen h-screen bg-gray-50">
@@ -170,7 +170,7 @@ console.log("state data",feature, businessId, userId)
         </div> : null
       }
 
-      <div className="w-full z-[1000]  overflow-y-auto max-h-screen">
+      <div className="w-full z-[90]  overflow-y-auto max-h-screen">
         <Navbar
           placeholder="Search "
           inputValue={searchQuery}

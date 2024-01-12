@@ -89,11 +89,14 @@ const Page: React.FC = () => {
     <>
       <Toaster position="top-right"
         reverseOrder={false} />
+        {/* main container */}
       <main className="h-screen w-full  flex items-center justify-center bg-gray-100  ">
-        <div className="h-full w-full  md:flex ">
-          <div className="h-full flex items-center justify-center flex-col  w-full lg:w-[47%] ">
-            <div className="h-[85%] w-[90%] sm:w-[80%] md:w-[70%] lg:w-[75%] flex rounded-lg flex-col items-center bg-white">
-              <div className="h-1/4 text-5xl flex items-center  text-black font-semibold">
+        <div className="h-full w-full   md:flex ">
+          
+          <div className="h-full flex  items-center justify-center flex-col  w-full lg:w-[47%] ">
+            <div className="h-[85%] shadow-lg w-[90%] sm:w-[80%] md:w-[70%] lg:w-[75%] flex rounded-lg flex-col items-center bg-white">
+      {/* logo div */}
+              <div className="h-1/4  text-5xl flex items-center  text-black font-semibold">
                 <Logo />
               </div>
               <div className="w-[80%]">

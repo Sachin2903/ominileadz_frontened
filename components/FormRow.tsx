@@ -6,6 +6,7 @@ interface IFormRow {
   value: string | number;
   handleChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
   labelText?: string;
+  require?:boolean
 }
 
 const FormRow: React.FC<IFormRow> = ({

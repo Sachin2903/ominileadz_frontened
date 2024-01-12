@@ -72,7 +72,7 @@ const AddSyncLeadsModal = () => {
   };
 
   return (
-    <main className="h-screen w-full flex items-center justify-center z-20 fixed bg-black bg-opacity-60">
+    <main className="h-screen w-full flex items-center justify-center z-[300] fixed bg-black bg-opacity-60">
       <div className="max-h-[85%] h-[60%] relative w-[80%] bg-white  rounded-md  z-30 flex justify-center items-center py-5 overflow-y-auto flex-col">
         <CloseGrButton onClick={handleClose} className="left-5" />
         <h2 className="md:text-3xl text-xl mb-7 text-center font-semibold">

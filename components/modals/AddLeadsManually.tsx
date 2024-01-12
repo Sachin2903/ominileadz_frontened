@@ -9,6 +9,7 @@ import CloseGrButton from "../buttons/CloseGrButton";
 import toast, { Toaster } from "react-hot-toast";
 import { getAccessToken, getRefreshToken } from "@/src/utils/getTokens";
 import { ILeadsInitialState, ILeadsState } from "@/src/@types";
+import { useAppSelector } from "@/redux/hooks";
 const URL: string = process.env.NEXT_PUBLIC_BASE_URL!;
 
 // for post member
@@ -48,6 +49,9 @@ const AddLeadsManually = () => {
 
   const dispatch = useDispatch();
   const [addLeadsManually, setAddLeadsManually] = useState(iAddLeads);
+  const {business,userId}:{business:string,userId:string} = useAppSelector(
+    (state: { mainSlice: any }) => state.mainSlice
+  );
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const name = e.target.name;
@@ -72,6 +76,7 @@ const AddLeadsManually = () => {
 
   const handleSubmit = async (e: any) => {
     e.preventDefault();
+    if(business){
     try {
       const accessToken = getAccessToken();
       const refreshToken = getRefreshToken();
@@ -85,7 +90,7 @@ const AddLeadsManually = () => {
         Authorization: `Bearer ${accessToken}`,
       };
 
-      const response = await axios.post(`${URL}/api/leads`, addLeadsManually, {
+      const response = await axios.post(`${URL}/api/leads/${business}`, addLeadsManually, {
         headers,
       });
       toast.success("Lead created successfully...");
@@ -103,6 +108,7 @@ const AddLeadsManually = () => {
       // unhandled non-AxiosError goes here
       throw error;
     }
+  }
   };
 
   const handleClose = () => {
@@ -111,7 +117,7 @@ const AddLeadsManually = () => {
   };
 
   return (
-    <main className="h-full w-full flex items-center justify-center z-20 fixed bg-black bg-opacity-60 s ">
+    <main className="h-full w-full flex items-center justify-center z-[300] fixed bg-black bg-opacity-60 s ">
       <div className="sm:h-auto max-h-[80vh] xs:max-h-[95vh]  sm:w-[90%] w-[95%]  bg-white  rounded-md z-30 flex relative flex-col xs:px-16 py-2  mb-20 sm:mb-0 overflow-auto mt-10 xs:mt-0">
         <CloseGrButton onClick={handleClose} className="left-5" />
         <h2 className="md:text-2xl text-lg mb-7 text-center font-semibold">
