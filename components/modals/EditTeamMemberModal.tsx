@@ -38,7 +38,7 @@ const EditTeamMemberModal = () => {
     e.preventDefault();
     try {
       const response = await axios.post(`${URL}/api/business/team`, postMember);
-      console.log("POST Request Successful:", response.data);
+      // console.log("POST Request Successful:", response.data);
       dispatch(closeEditTeamMemberModal());
     } catch (error) {
       if (error instanceof AxiosError) {

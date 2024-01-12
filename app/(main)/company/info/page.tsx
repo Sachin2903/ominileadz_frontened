@@ -128,7 +128,7 @@ const Page = () => {
       );
 
       let companiesData: ICompanyObject[] = response.data;
-      console.log(companiesData);
+      // console.log(companiesData);
       setData(companiesData);
     } catch (error) {
       if (error instanceof AxiosError) {

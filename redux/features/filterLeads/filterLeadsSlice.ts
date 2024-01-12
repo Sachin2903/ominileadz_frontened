@@ -23,7 +23,7 @@ const filterLeadsSlice = createSlice({
       state.leadSubCategory = payload;
     },
     setLeadSaveToggleValue: (state, { payload }) => {
-      console.log("payload", payload);
+      // console.log("payload", payload);
 
       state.leadSaveToggle = payload;
     },

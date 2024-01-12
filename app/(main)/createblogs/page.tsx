@@ -70,7 +70,7 @@ const Page: NextPage<PageProps> = () => {
             const apiSecret = "7WcVRcG--Kb0KVXhiJa8_o6YnqQ";
             // const publicId = "tofmwnxizaxx0qtg01js";
             const publicId = "blog/" + getPublicIdFromUrl(premedia);
-            console.log(publicId);
+            // console.log(publicId);
             const timestamp = new Date().getTime();
             const signature = generateSHA1(generateSignature(publicId, apiSecret));
             const url = `https://api.cloudinary.com/v1_1/${cloudName}/image/destroy`;

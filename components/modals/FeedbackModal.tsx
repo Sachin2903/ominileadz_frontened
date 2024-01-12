@@ -154,11 +154,11 @@ const FeedbackModal: React.FC<FeedbackModalProps> = ({ leadId }) => {
       ...prevLead,
       [name]: value,
     }));
-    console.log(lead);
-    console.log("check 1");
+    // console.log(lead);
+    // console.log("check 1");
 
     dispatch(setLeadSaveToggleValue(true));
-    console.log("check 2");
+    // console.log("check 2");
   };
 
   const handleSubmit = async (e: any) => {

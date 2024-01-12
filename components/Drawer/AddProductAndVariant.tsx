@@ -698,7 +698,7 @@ export default function AddProductDrawer({ editProductRefresh, setProductRefresh
                         placeholder="Select Attributes"
                         value={changekeyValueLabelToString(selectedAttribute)}
                         onChange={(e:any,selectedOptions:any) => {
-                            console.log(e,selectedOptions)
+                            // console.log(e,selectedOptions)
                             setSelectedAttribute([...selectedAttribute, selectedOptions.pop()]);
                         }}
                         style={{ width: '100%' }}

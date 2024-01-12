@@ -105,7 +105,7 @@ export function CouponTable({refresh, setRefresh, setPreFilledValue, preFilledVa
     useEffect(() => {
         async function fetchData() {
             try {
-                console.log("targetCome")
+                // console.log("targetCome")
                 const response = await axios.get(`${process.env.NEXT_PUBLIC_BASE_URL}/coupon/getallcoupon`);
                 setTableData(response.data)
                 setLoadingSkeleton(false)

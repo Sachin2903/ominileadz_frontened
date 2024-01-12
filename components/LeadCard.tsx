@@ -6,7 +6,7 @@ import { FormRowSelect, LeadCardFormSelect } from ".";
 
 const LeadCard = () => {
   const handleOptionChange = () => {
-    console.log("handle option change");
+    // console.log("handle option change");
   };
 
   return (

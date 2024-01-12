@@ -42,7 +42,7 @@ const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
   const { mainLoader,feature,business,userId}:{mainLoader:boolean,feature:boolean[],business:string,userId:string} = useAppSelector(
     (state: { mainSlice: any }) => state.mainSlice
   );
-  console.log(mainLoader,feature,business,userId)
+  // console.log(mainLoader,feature,business,userId)
   // modal slice
   const {
     isMemberLeadsInfoModalOpen,

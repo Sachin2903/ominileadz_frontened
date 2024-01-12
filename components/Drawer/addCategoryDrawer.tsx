@@ -207,7 +207,7 @@ export function AddCategoryDrawer({ treeData, setTreeData, preFilledData, setPre
         if (imageeRequire)
             setImageeRequiree(false)
         const file = newFileList[0]
-        console.log(file)
+        // console.log(file)
         if (file) {
             const reader = new FileReader();
             reader.readAsDataURL(file.originFileObj as RcFile);

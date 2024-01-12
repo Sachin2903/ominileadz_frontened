@@ -71,7 +71,7 @@ const UpdateTeamMemberModel: React.FC<UpdateTeamMemberModalProps> = ({
     setTags((prevTags) => [...prevTags, tag]);
   };
   const handleTagClick = (index: number): void => {
-    console.log("The tag at index " + index + " was clicked");
+    // console.log("The tag at index " + index + " was clicked");
   };
 
   const handleDrag = (tag: Tag, currPos: number, newPos: number): void => {
@@ -140,7 +140,7 @@ const UpdateTeamMemberModel: React.FC<UpdateTeamMemberModalProps> = ({
 
       const teamsData: TeamMembersType = response.data;
       setPostMember(teamsData);
-      console.log(teamsData);
+      // console.log(teamsData);
 
       const tagsList: Tag[] = teamsData.role.map((item) => ({
         id: item,

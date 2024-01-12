@@ -15,7 +15,7 @@ const Myblogs = () => {
         if (response.ok) {
           const responseData = await response.json();
           setBlogcontent(responseData);
-          console.log(responseData);
+          // console.log(responseData);
         } else {
           console.error("Image upload failed:", response.statusText);
         }

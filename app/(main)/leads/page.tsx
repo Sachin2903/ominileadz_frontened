@@ -157,7 +157,7 @@ const Page = () => {
         });
       }
 
-      console.log("checking leadsData", leadsData);
+      // console.log("checking leadsData", leadsData);
     } catch (error) {
       if (error instanceof AxiosError) {
         const errorMessage =
@@ -284,7 +284,7 @@ const Page = () => {
     fetchLeadsData();
   }, [searchQuery, leadCategory, leadSubCategory, leadSaveToggle]);
 
-  console.log("log from page", leadSaveToggle);
+  // console.log("log from page", leadSaveToggle);
 
   const subMenuButtonItems = [
     {

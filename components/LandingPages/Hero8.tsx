@@ -9,7 +9,7 @@ const Hero8 = () => {
       | React.ChangeEvent<HTMLInputElement>
       | React.ChangeEvent<HTMLSelectElement>
   ) => {
-    console.log("name entered");
+    // console.log("name entered");
   };
 
   const list = ["Business Type", "Producer", "Retailer", "Wholesaler"];

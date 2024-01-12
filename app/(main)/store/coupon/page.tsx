@@ -223,8 +223,9 @@ export default function Coupon() {
             "minimumAmount": minValueReq,
             "status": statusAddCoupon
         }
-        const result = await axios.post("http://localhost:3333/coupon/addcoupon", data)
-        console.log(result.data)
+        // const result = await axios.post("http://localhost:3333/coupon/addcoupon", data)
+        const result=await axios.post(`${process.env.NEXT_PUBLIC_BASE_URL}/coupon/addcoupon`,data)
+        // console.log(result.data)
     }
 
     const onClose = () => {

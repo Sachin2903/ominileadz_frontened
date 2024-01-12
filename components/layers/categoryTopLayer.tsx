@@ -26,7 +26,7 @@ export default function CategoryTopLayer({ fileList, setFileList, openAddCategor
     const [importToggle, setImportToggle] = useState(false)
     const [uploading, setUploading] = useState(false);
     const handleImportData = () => {
-        console.log("button click", fileList[0])
+        // console.log("button click", fileList[0])
         setUploading(true);
         setFileList([])
         message.success("done")

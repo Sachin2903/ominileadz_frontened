@@ -83,7 +83,7 @@ const AddcontactDetailsModal = () => {
         Authorization: `Bearer ${accessToken}`,
       };
 
-      console.log("contact object", contact);
+      // console.log("contact object", contact);
       const response = await axios.post(`${URL}/api/contacts`, contact, {
         headers,
       });
